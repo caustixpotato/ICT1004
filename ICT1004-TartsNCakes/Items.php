@@ -17,7 +17,8 @@
                     <a class="btn btn-primary btn-lg" href="#" role="button">Baked!</a>
             </div>
         </header>
-<?php
+<body>
+            <?php
      $config = parse_ini_file('../../private/db1-config.ini');
      $conn = new mysqli($config['servername'], $config['username'],
      $config['password'], $config['dbname']);
@@ -50,12 +51,15 @@
     {
             echo "<td>" .$rows['Img']. "</td>";    
     }
+    echo "</table>";
+    mysql_close($conn);
 }
 ?>
-    
+</body>
         <?php
                include "footer.inc.php"; //add/include the content from footer.inc.php
             ?>
+</html>
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
