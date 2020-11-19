@@ -1,0 +1,46 @@
+main h2
+{
+    text-decoration:underline;
+}
+
+figure
+{
+    display:        inline-block;
+}
+
+figure img
+{
+    border-style:   double;
+    border-color:   black;
+}
+
+figure figcaption
+{
+    color:          gray;
+    font-style:     italic;
+    text-align:     center;
+}
+
+footer
+{
+    border-top:     solid;
+    font-style:     italic;
+    font-size:      smaller;
+    text-align:     center;
+}
+
+body nav div
+{
+    text-align:     right;
+}
+
+.img-popup img
+{
+    z-index:        1;
+    height:         100%;
+    width:          auto;
+    bottom:         100px;
+    left:           100px;
+    position:       absolute;
+    box-sizing:     border-box;
+}
