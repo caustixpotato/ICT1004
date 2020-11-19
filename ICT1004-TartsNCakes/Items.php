@@ -1,5 +1,11 @@
 <?php
-   $config = parse_ini_file('../../private/db1-config.ini');
+      include "nav.inc.php" //add/include the content from nav.inc.php
+     ?>
+<link rel="stylesheet"  href="css/login.css">
+     
+        <link rel="stylesheet" href="css/main.css" />
+<?php
+     $config = parse_ini_file('../../private/db1-config.ini');
      $conn = new mysqli($config['servername'], $config['username'],
      $config['password'], $config['dbname']);
     
@@ -31,7 +37,12 @@
     {
             echo "<td>" .$rows['Img']. "</td>";    
     }
-    }
+}
+?>
+    
+        <?php
+               include "footer.inc.php"; //add/include the content from footer.inc.php
+            ?>
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
