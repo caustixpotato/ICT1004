@@ -20,7 +20,10 @@ $Updateuser = mysqli_query($conn,$newfname);
 
 if($Updateuser >0)
 {
-    header("Location:profile.php");
+    echo "<script>
+   alert('Profile Update Successfully');
+  window.location.href='profile.php';
+   </script>";
 }
 else
 {
