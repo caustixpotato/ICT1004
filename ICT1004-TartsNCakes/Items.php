@@ -11,6 +11,7 @@
      ?>
 <body>
  <?php
+    global $errorMsg, $success;
     $success = true;
     
 function Display_Img(){
@@ -18,9 +19,8 @@ function Display_Img(){
      $conn = new mysqli($config['servername'], $config['username'],
      $config['password'], $config['dbname']);
     
-    $stmt = $conn->prepare("SELECT * FROM world_of_pets_members WHERE email=?");
-     
-     //Bind & exec the query statement
+     $stmt = $conn->prepare("SELECT * FROM Items");
+    // Bind & execute the query statement:
     $stmt->execute();
     $result = $stmt->get_result();
     if ($conn->connect_error)
@@ -31,17 +31,19 @@ function Display_Img(){
      else
     {
     // Prepare the statement:
-    $stmt = $conn->prepare("SELECT * FROM Items");
-    // Bind & execute the query statement:
-    $stmt->execute();
-    $result = $stmt->get_result();
+   
     }
     $stmt->close();
-    mysql_close($conn);
- }
     
-if ($success){
-     echo "<table border='1'>
+ }
+
+if ($success)
+ {
+    Display_Img();
+ } 
+if ($success)
+{
+    echo "<table border='1'>
 
     <tr>
     <th>Img</th>
@@ -65,6 +67,7 @@ else{
     echo "<p>";
     include "footer.inc.php";
 }
+mysql_close($conn);
 ?>
 </body>
         <?php
