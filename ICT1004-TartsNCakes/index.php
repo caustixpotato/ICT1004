@@ -1,32 +1,30 @@
 ﻿<!DOCTYPE html>
 <html>
     <head> <!--header-->
-        <title>World of Pets</title>
+        <title>Tarts N's Cake</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <!--Boostrap-->
-        <link rel="stylesheet"
-              href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
-              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-              crossorigin="anonymous" />
-
+        <!-- Bootstrap 4.5.3 CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+              integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+              crossorigin="anonymous">
+             
+        <!-- Internal CSS-->
         <link rel="stylesheet" href="css/main.css" />
 
-        <!--jQuery-->
-        <script defer
-                src="https://code.jquery.com/jquery-3.4.1.min.js"
-                integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-                crossorigin="anonymous">
+        <!-- Bootstrap 4.5.3 jQuery-->
+        <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous">
         </script>
 
-        <!--Bootstrap JS-->
-        <script defer
-                src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
-                integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
-                crossorigin="anonymous">
+        <!--Bootstrap 4.5.3 JS-->
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous">
         </script>
-        <!-- Custom JS -->
+        
+        <!-- Internal JS -->
         <script defer src="js/main.js"></script>
     </head>
 
@@ -34,66 +32,29 @@
         <?php 
         include "phpFiles/nav.inc.php"
         ;?> 
-        <header id="Content" class="jumbotron text-center">
-            <h1 class="display-4">Welcome to World of Pets!</h1>
-            <h2>Home of Singapore's Pet Lovers</h2>
+        <header id="Content">
+            <div class="jumbotron jumbotron-fluid text-center bg-cover" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.15),rgba(255,255,255,0.7)), url(images/sliced.png)">
+                    <h1 class="display-4">Tarts N' Cakes</h1>
+                    <hr class="lead">
+                    <p>Best Thing Since Sliced Bread!</p>
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Baked!</a>
+            </div>
         </header>
         <main class="container">
             <section id="dogs">
-                <h2>All About Dogs!</h2>
+                <h2>Dog shaped like cake!</h2>
                 <div class="row">
                     <article id="pooDog" class="col-sm">
-                        <h3>Poodle</h3>
+                        <h3>Dogake</h3>
                         <figure>
                             <img class="img-thumbnail" src="images/poodle_small.jpg" alt="Poodle"
                                  title="View larger image..." />
-                            <figcaption>Standard Poodle</figcaption>
+                            <figcaption>Standard Poodle (Cake)</figcaption>
                         </figure>
                         <p>
-                            Poodles are a group of formal dog breeds, the Standard
-                            Poodle, Miniature Poodle and Toy Poodle...
-                        </p>
-                    </article>
-                    <article id="chiDog" class="col-sm">
-                        <h3>Chihuahua</h3>
-                        <figure>
-                            <img class="img-thumbnail" src="images/chihuahua_small.jpg" alt="Chihuahua"
-                                 title="View larger image..."/>
-                            <figcaption>Standard Chihuahua</figcaption>
-                        </figure>
-                        <p>
-                            The Chihuahua is the smallest breed of dog, and is named
-                            after the Mexican state of Chihuahua...
-                        </p>
-                    </article>
-                </div>
-            </section>
-
-            <section id="cats">
-                <h2>All About Cats!</h2>
-                <div class="row">
-                    <article id="tabbyCat" class="col-sm">
-                        <h3>Tabby</h3>
-                        <figure>
-                            <img class="img-thumbnail" src="images/tabby_small.jpg" alt="Tabby"
-                                 title="View larger image..." />
-                            <figcaption>Standard Tabby Cat</figcaption>
-                        </figure>
-                        <p>
-                            A tabby is any domestic cat with a distinctive 'M' shaped marking on their forehead,
-                            stripes by their eyes and across their cheeks, along their back, and around their legs and tail...
-                        </p>
-                    </article>
-                    <article id="calCat" class="col-sm">
-                        <h3>Calico</h3>
-                        <figure>
-                            <img class="img-thumbnail" src="images/calico_small.jpg" alt="Calico Cat"
-                                 title="View larger image..." />
-                            <figcaption>Standard Calico Cat</figcaption>
-                        </figure>
-                        <p>
-                            A calico cat is a domestic cat with a coat that is typically 25% to 75% white with large orange and black patches.
-                            They are the Maryland state cat and are almost exclusively female...
+                            Definitely Not A Dog
+                            This cake is so realistic and showcases the master craftsmanship of 
+                            our finest cake artisans!
                         </p>
                     </article>
                 </div>
