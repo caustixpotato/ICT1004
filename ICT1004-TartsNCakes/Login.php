@@ -55,7 +55,7 @@
         <aside id="info">
             <h2>NEW CUSTOMER</h2>
             <h3>Sign up today and you will be able to:</h3>
-            <div class="tick"><p>Speed your way through checkout</p></div>
+            <div class="tick"><p>Speed through checkout</p></div>
             <div  class="tick"><p>Track your order easily</p></div>
             <div class="tick"><p><b>Promotion for member</b></p></div>
         

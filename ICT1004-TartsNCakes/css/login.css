@@ -327,16 +327,21 @@ input[type="password" ]::-webkit-input-placeholder
 {
     #contentlogin
    { 
-    width: 810px;;
+    width: 360px;;
     height:660px;
     margin-top: 5px;
     position: relative;
    }
+   .form-gorup1 
+  {
+  width: 300px;
+  clear: both;
+  }
     article
    { 
     clear: left;
     width:318px;
-    margin-left: 30px;
+    margin-left: 10px;
     height:350px;
     position: relative;
    }
@@ -392,7 +397,7 @@ input[type="password" ]::-webkit-input-placeholder
   }
     #info
    {
-    margin-left: 30px;
+    margin-left: 10px;
     float: none;
     width:342px;
     margin-top: 50px;
