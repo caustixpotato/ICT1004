@@ -70,6 +70,11 @@ Primary Buttons:
                 <a class="nav-link" title="view profile" href="profile.php">Account              
                   </a>                  
                   </li>';
+                   
+                   echo ' <li class="nav-item">
+                <a class="nav-link" title="cart" href="Cart.php">Shopping Cart              
+                  </a>                  
+                  </li>';
               }
              
            //open connection and select database
@@ -87,9 +92,7 @@ Primary Buttons:
               ?>
             
             
-                <li class="nav-item">
-                <a class="nav-link" href="#cats">Shopping Cart</a>
-            </li>
+               
         </ul>
     </div>
 </nav>

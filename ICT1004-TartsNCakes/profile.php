@@ -5,10 +5,10 @@
     
        <!-- Internal CSS-->
         <link rel="stylesheet" href="css/main.css" />
-        
          <?php
       include "cssandjava.inc.php" //add/include the content from nav.inc.php
      ?>
+ 
 
     
     <?php       
@@ -18,10 +18,10 @@
            $config = parse_ini_file('../../private/db1-config.ini');
            $conn = new mysqli($config['servername'], $config['username'],
            $config['password'], $config['dbname']);
-  
            $useremail = $_SESSION['whoami'];
+           $userid = $_SESSION['userid'];
            $userlname = $_SESSION['username'];
-           $sql="SELECT * FROM cake_member where email ='$useremail'";     
+           $sql="SELECT * FROM cake_member where userID ='$userid'";     
            
            $selectduser = mysqli_query($conn,$sql);
            $userinfo = mysqli_fetch_assoc($selectduser);
@@ -65,11 +65,13 @@
                    <input class="form-control "type="text" id="newlname"
                    required maxlength="45" name="newlname" value="<?php echo $userinfo['lname'];?>">             
               </div>   
-              <div class="form-gorup">
+                   
+               <div class="form-gorup">
                    <label for="email">Email:</label>            
                    <input class="form-control" type="email" id="newemail" required name="newemail"                   
                           placeholder="Enter email" title="Please enter a valid email addess" value="<?php echo $userinfo['email'];?>">            
-              </div>             
+              </div>      
+                         
               <div class="form-gorup">
                    <label for="phoneno">Phone number:</label> 
                    <input  class="form-control" type="text" id="newphoneno"  required maxlength="11" name="newphoneno" 

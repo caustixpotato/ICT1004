@@ -5,6 +5,7 @@
       include "cssandjava.inc.php" //add/include the content from nav.inc.php
      ?>
       <link rel="stylesheet" href="css/main.css" />
+      <link rel="stylesheet" href="css/register.css" />
       
        <?php
       include "cssandjava.inc.php" //add/include the content from nav.inc.php

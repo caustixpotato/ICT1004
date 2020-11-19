@@ -90,8 +90,10 @@ function authenticateUser()
     $fname = $row["fname"];
     $lname = $row["lname"];
     $email = $row["email"];
+    $userid = $row["userID"];
     $_SESSION['whoami'] = $email;
     $_SESSION['username'] = $lname;
+    $_SESSION['userid'] = $userid;
     $pwd_hashed = $row["password"];
     // Check if the password matches:
     if (!password_verify($_POST["pwd"], $pwd_hashed))
@@ -125,12 +127,16 @@ function authenticateUser()
 <title>Register result</title>      
 </head>
 <body>
-     <?php
-      include "nav.inc.php" //add/include the content from nav.inc.php
-     ?>
-        <header class="jumbotron text-center">
-            <h1 class="display-4">Welcome to World of Pets!</h1>
-            <h2>Home of Singapore's Pet Lovers</h2>
+       <?php 
+        include "phpFiles/nav.inc.php"
+        ;?> 
+         <header id="Content">
+            <div class="jumbotron jumbotron-fluid text-center bg-cover" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.15),rgba(255,255,255,0.7)), url(images/sliced.png)">
+                    <h1 class="display-4">Tarts N' Cakes</h1>
+                    <hr class="lead">
+                    <p>Best Thing Since Sliced Bread!</p>
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Baked!</a>
+            </div>
         </header>
        
         

@@ -18,7 +18,7 @@
    
     width: 1280px;
     height:350px;
-    margin-top: 75px;
+    margin-top: 10px;
     position: relative;
     margin-bottom: 20px;
 }
@@ -227,7 +227,7 @@ input[type="password" ]::-webkit-input-placeholder
    { 
     width: 1200px;
     height:600px;
-    margin-top: 30px;
+    margin-top: 5px;
     position: relative;
     margin-bottom: 20px;
    }
@@ -329,7 +329,7 @@ input[type="password" ]::-webkit-input-placeholder
    { 
     width: 810px;;
     height:660px;
-    margin-top: 27px;
+    margin-top: 5px;
     position: relative;
    }
     article
