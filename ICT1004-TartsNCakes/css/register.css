@@ -3,7 +3,9 @@
   width: 500px;
   float: left;
 }
-
+#form1{
+    margin-bottom: 60px;
+}
 .form-gorup input {
   width: 450px;
   height: 50px;
