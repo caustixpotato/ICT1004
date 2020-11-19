@@ -6,3 +6,6 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+ICT1004-TartsNCakes/nbproject/private/private.properties
+ICT1004-TartsNCakes/nbproject/private/config.properties
+ICT1004-TartsNCakes/nbproject/configs/1004ProjConfig.properties
