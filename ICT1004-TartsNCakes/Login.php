@@ -26,7 +26,7 @@
         </header>
   
  <main class="container">        
-               <section id="content">
+               <section id="contentlogin">
 
     <article>
             <h2>Existing customer</h2>
