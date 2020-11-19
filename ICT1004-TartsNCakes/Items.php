@@ -9,17 +9,12 @@
 <?php
       include "nav.inc.php" //add/include the content from nav.inc.php
      ?>
-<header id="Content">
-            <div class="jumbotron jumbotron-fluid text-center bg-cover" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.15),rgba(255,255,255,0.7)), url(images/sliced.png)">
-                    <h1 class="display-4">Tarts N' Cakes</h1>
-                    <hr class="lead">
-                    <p>Best Thing Since Sliced Bread!</p>
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Baked!</a>
-            </div>
-        </header>
 <body>
-            <?php
-     $config = parse_ini_file('../../private/db1-config.ini');
+ <?php
+    $success = true;
+    
+function Display_Img(){
+    $config = parse_ini_file('../../private/db1-config.ini');
      $conn = new mysqli($config['servername'], $config['username'],
      $config['password'], $config['dbname']);
     
@@ -40,19 +35,35 @@
     // Bind & execute the query statement:
     $stmt->execute();
     $result = $stmt->get_result();
+    }
+    $stmt->close();
+    mysql_close($conn);
+ }
     
-    echo "<table border='1'>
+if ($success){
+     echo "<table border='1'>
 
     <tr>
     <th>Img</th>
     </tr>";
     
     while ($rows= mysql_fetch_array($result))
-    {
+        {
             echo "<td>" .$rows['Img']. "</td>";    
-    }
+        }
     echo "</table>";
-    mysql_close($conn);
+}
+else{
+    include "nav.inc.php";
+    echo "<p>";
+    echo "<main class ='container'";
+    echo "<h2>Oops!</h2>";
+    echo "<h3>The following input errors were detected:</h3>";
+    echo "<p>" . $errorMsg . "</p>";
+    echo "<p> <a class='btn btn-danger' href='login.php'>Return to Login</a>";
+    echo "</main>";
+    echo "<p>";
+    include "footer.inc.php";
 }
 ?>
 </body>
