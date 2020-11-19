@@ -56,23 +56,3 @@ function togglePopup(event)
 		$("#" + ID_POPUP).remove();
 	}
 }
-
-//function registerImgHandler()
-//{
-//    var modal = document.getElementById(ID_MODAL);
-//    if (modal === null)
-//    {
-//        modal = document.createElement("div");
-//        modal.id = ID_MODAL;
-//        modal.insertAdjacentElement("beforebegin", modal);
-//    }
-//    else
-//    {
-//        console.log("ITBROKE");
-//    }
-//}
-//
-//function toggleModal()
-//{
-//    $("#id_modal").modal(show);
-//}
