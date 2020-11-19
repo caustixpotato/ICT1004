@@ -1,9 +1,14 @@
 <html lang="en">
 <head>
+    <title>Tarts N's Cake</title>
     <?php
       include "cssandjava.inc.php" //add/include the content from nav.inc.php
      ?>
       <link rel="stylesheet" href="css/main.css" />
+      
+       <?php
+      include "cssandjava.inc.php" //add/include the content from nav.inc.php
+     ?>
 <script>
    function same()
     {
@@ -29,9 +34,9 @@
 </head>
 
 <body>
-     <?php
-      include "nav.inc.php" //add/include the content from nav.inc.php
-     ?>
+    <?php 
+        include "phpFiles/nav.inc.php"
+        ;?> 
        <header id="Content">
             <div class="jumbotron jumbotron-fluid text-center bg-cover" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.15),rgba(255,255,255,0.7)), url(images/sliced.png)">
                     <h1 class="display-4">Tarts N' Cakes</h1>
