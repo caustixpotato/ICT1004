@@ -4,7 +4,8 @@
       include "cssandjava.inc.php" //add/include the content from nav.inc.php
      ?>
     <link rel="stylesheet"  href="css/login.css">
-      
+     
+        <link rel="stylesheet" href="css/main.css" />
 
  
 <title>World of Pets</title>      
@@ -14,9 +15,13 @@
      <?php
       include "nav.inc.php" //add/include the content from nav.inc.php
      ?>
-        <header class="jumbotron text-center">
-            <h1 class="display-4">Welcome to World of Pets!</h1>
-            <h2>Home of Singapore's Pet Lovers</h2>
+        <header id="Content">
+            <div class="jumbotron jumbotron-fluid text-center bg-cover" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.15),rgba(255,255,255,0.7)), url(images/sliced.png)">
+                    <h1 class="display-4">Tarts N' Cakes</h1>
+                    <hr class="lead">
+                    <p>Best Thing Since Sliced Bread!</p>
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Baked!</a>
+            </div>
         </header>
   
  <main class="container">        
