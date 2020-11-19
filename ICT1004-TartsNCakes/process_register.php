@@ -190,8 +190,6 @@ function saveMemberToDB()
                    
     </main>
     <br>
-    <?php
-          include "footer.inc.php"; //add/include the content from footer.inc.php
-    ?>       
+      <?php    include "phpFiles/footer.inc.php";?>      
 </body>
 </html>

@@ -104,9 +104,7 @@
             </form>
                    
                                      
-            <?php
-               include "footer.inc.php"; //add/include the content from footer.inc.php
-            ?>
+            <?php    include "phpFiles/footer.inc.php";?> 
 
     </main>
     
