@@ -33,7 +33,7 @@
     <th>Img</th>
     </tr>";
     
-    while ($rows= mysql_fetch_assoc($result))
+    while ($rows= mysql_fetch_array($result))
     {
             echo "<td>" .$rows['Img']. "</td>";    
     }
