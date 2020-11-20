@@ -1,122 +1,52 @@
 <html lang="en">
 <head>
+      <title>Tarts N's Cake</title>
+       <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+              integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+              crossorigin="anonymous">
+    <link rel="stylesheet"  href="css/login.css">
+     
+    <link rel="stylesheet" href="css/main.css" />
     
-<?php
-  include "phpFiles/nav.inc.php" //add/include the content from nav.inc.php
- ?>
-<link rel="stylesheet" href="css/login.css" />    
-<link rel="stylesheet" href="css/main.css" />
+     <!-- Bootstrap 4.5.3 jQuery-->
+        <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous">
+        </script>
+
+        <!--Bootstrap 4.5.3 JS-->
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous">
+        </script>
+        
+        <!-- Internal JS -->
+        <script defer src="js/main.js"></script>
+</head>
 <body>
-<Title>List Cake Images</Title>
- <?php
-    $success = true;
-    function Display_Img()
-    {
+    <?php 
+        include "phpFiles/nav.inc.php"
+        ;?>
+<?php
+        $success = true;
         $config = parse_ini_file('../../private/db1-config.ini');
         $conn = new mysqli($config['servername'], $config['username'],
         $config['password'], $config['dbname']);
-        if ($conn->connect_error)
-        {
-            $errorMsg = "Connection failed: ".$conn -> connect_error;
-            $success = false;
-        }
-        else {
-//            $stmt = $conn->prepare("SELECT * FROM Items");
-//            $stmt->execute();
-//            $result = $stmt->get_result();
-//            $stmt->close();
-            $sql = "SELECT ItemID FROM Items ORDER BY ItemID DESC"; 
-            $result = mysqli_query($conn, $sql);
-        }
-    }
-    if ($success)
-    {
-     global $result;
-     while($row = mysqli_fetch_array($result)) {
-	?>
-    <img src="ItemView.php?item_id=<?php echo $row["ItemID"]; ?>" /><br/>
-     <?php		
-	}
-        mysqli_close($conn);
-        }
-    else
-    {
-     include "nav.inc.php";
-     echo "<p>";
-     echo "<main class ='container'";
-     echo "<h2>Oops!</h2>";
-     echo "<h3>The following input errors were detected:</h3>";
-     echo "<p>" . $errorMsg . "</p>";
-     echo "<p> <a class='btn btn-danger' href='login.php'>Return to Login</a>";
-     echo "</main>";
-     echo "<p>";
-     include "footer.inc.php";
-    }
+        $sql = "SELECT Img FROM Items"; 
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_array($result);
+        echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['Img'] ).'"/>';
+        
+ ?>
     
-    ?>
-</body>
- <?php
+    <?php
     include "footer.inc.php"; //add/include the content from footer.inc.php
  ?>
+</body>
 </html>
-<!--     
-//    global $errorMsg, $success;
-//    $success = true;
-//    
-//function Display_Img(){
-//    $config = parse_ini_file('../../private/db1-config.ini');
-//     $conn = new mysqli($config['servername'], $config['username'],
-//     $config['password'], $config['dbname']);
-//    
-//     $stmt = $conn->prepare("SELECT * FROM Items");
-//    // Bind & execute the query statement:
-//    $stmt->execute();
-//    $result = $stmt->get_result();
-//    if ($conn->connect_error)
-//    {
-//     $errorMsg = "Connection failed: " . $conn->connect_error;
-//     $success = false;
-//    }
-//     else
-//    {
-//    // Prepare the statement:
-//   
-//    }
-//    $stmt->close();
-//    
-// }
-//
-//if ($success)
-// {
-//    Display_Img();
-// } 
-//if ($success)
-//{
-//    echo "<table border='1'>
-//
-//    <tr>
-//    <th>Img</th>
-//    </tr>";
-//    
-//    while ($rows= mysql_fetch_array($result))
-//        {
-//            echo "<td>" .$rows['Img']. "</td>";    
-//        }
-//    echo "</table>";
-//}
-//else{
-//    include "nav.inc.php";
-//    echo "<p>";
-//    echo "<main class ='container'";
-//    echo "<h2>Oops!</h2>";
-//    echo "<h3>The following input errors were detected:</h3>";
-//    echo "<p>" . $errorMsg . "</p>";
-//    echo "<p> <a class='btn btn-danger' href='login.php'>Return to Login</a>";
-//    echo "</main>";
-//    echo "<p>";
-//    include "footer.inc.php";
-//}
-//mysql_close($conn);-->
+    
 
        
 /* 
