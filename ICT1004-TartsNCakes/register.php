@@ -86,8 +86,8 @@
               </div>
               <div class="form-gorup">
                    <label for="pwd">Password:</label>            
-                   <input  class="form-control" type="password" id="pwd" required name="pwd"                                                                           
-                          placeholder="Enter password" >   
+                   <input  class="form-control" type="password" id="pwd" required minlength="12" name="pwd"                                                                           
+                          placeholder="Enter password">   
               </div>
               <div class="form-gorup">
                    <label for="conconfirm">Confirm Password:</label> 
