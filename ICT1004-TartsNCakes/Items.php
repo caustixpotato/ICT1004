@@ -34,12 +34,17 @@
         $config = parse_ini_file('../../private/db1-config.ini');
         $conn = new mysqli($config['servername'], $config['username'],
         $config['password'], $config['dbname']);
-        $sql = "SELECT Img FROM Items"; 
+        $sql = "SELECT Img, Name FROM Items"; 
         $result = mysqli_query($conn, $sql);
         while($row = mysqli_fetch_array($result))
         {
+            echo '<div class = "container">';
+            echo '<div class = "row">';
+            echo '<article class="col-sm">';
+            echo '<figure>';
             echo '<img src="data:image/jpeg;base64,'
             .base64_encode( $row['Img'] ).'"/>';
+            echo '<figcaption>'.$row["Name"].'</figcaption>';
         }
         
         
