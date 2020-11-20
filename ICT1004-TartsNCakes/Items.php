@@ -36,8 +36,12 @@
         $config['password'], $config['dbname']);
         $sql = "SELECT Img FROM Items"; 
         $result = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_array($result);
-        echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['Img'] ).'"/>';
+        while($row = mysqli_fetch_array($result))
+        {
+            echo '<img src="data:image/jpeg;base64,'
+            .base64_encode( $row['Img'] ).'"/>';
+        }
+        
         
  ?>
     
