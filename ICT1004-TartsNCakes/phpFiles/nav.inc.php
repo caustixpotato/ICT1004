@@ -56,7 +56,7 @@ Primary Buttons:
     <div class="collapse navbar-collapse" id="navbarToggler">
             <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="#dogs">About Us</a>
+                <a class="nav-link" href=" About.php">About Us</a>
             </li>
            
             
