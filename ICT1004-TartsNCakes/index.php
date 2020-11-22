@@ -26,24 +26,28 @@
 
         <!-- Internal JS -->
         <script defer src="js/main.js"></script>
+        
+        <!--Google Fonts-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet">
+        
     </head>
 
     <body>
         <?php
         include "phpFiles/nav.inc.php";
         ?> 
-        <header>
-            <!--            FILLER-->
-        </header>
         <main>
             <div class="jumbotron jumbotron-fluid bg-light">
                 <div class="jumbotron-background">
                     <img src="images/sliced.png" style="color:rgba(255,255,255,0.7)">
                 </div>
-                <div class="container text-white text-center">
-                    <h1 class="display-4">Tarts N' Cakes</h1>
-                    <p class="lead">Best thing since Sliced Bread</p>
-                    <a class="btn btn-primary" href="#" role="button">Shop Here</a>
+                <div class="container">
+                    <div class="txt text-white text-center">
+                        <h1 class="display-4">Tarts N' Cakes</h1>
+                        <p class="lead">Best thing since Sliced Bread</p>
+                        <a class="btn btn-primary" href="#" role="button">Shop Here</a>
+                    </div>
                 </div>
             </div>
             <!--            Intro Cards-->
