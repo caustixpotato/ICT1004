@@ -38,13 +38,19 @@ Primary Buttons:
 
 .dropdown:hover .dropdown-content {display: block;}
 
+/*.bg-dark {
+    background: transparent !important;
+}
+
+.bg-dark.scrolled{
+    background: #000 !important;
+}*/
+
 </style>
 
-<nav id ="navbar"
-     class="navbar sticky-top navbar-expand-sm navbar-light"
-     style="background-color: #e3f2fd;">
+<nav id ="navbar" class="navbar navbar-expand-lg navbar-light sticky-top">
     <a class="navbar-brand" href="index.php">
-        <img src="images/logo.png" />
+        <img src="images/logo.png" width="auto" height="75" class="d-inline-block align-top" alt="Tarts N Cakes Logo" loading="lazy"/>
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" 
@@ -56,7 +62,9 @@ Primary Buttons:
     <div class="collapse navbar-collapse" id="navbarToggler">
             <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href=" About.php">About Us</a>
+                <a class="nav-link" href=" About.php">
+                    <img src="images/about.png" width="auto" height="40" class="d-inline-block align-center" alt="About Us" loading="lazy"/>
+                </a>
             </li>
            
             
@@ -66,7 +74,8 @@ Primary Buttons:
 
              if(!isset($_SESSION['whoami']))
               {
-                   echo ' <li class="nav-item">
+                   echo '
+                  <li class="nav-item">
                   <a class="nav-link" title="Login" href="Login.php">Login              
                   </a>                  
                   </li>';

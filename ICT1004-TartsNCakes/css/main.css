@@ -1,9 +1,8 @@
-.bg-cover {
-    background-attachment: static;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+/*Navbar CSS for use in JS Opacity Change*/
+.navbar{
+  background:transparent;
 }
+
 main h2
 {
     text-decoration:underline;
