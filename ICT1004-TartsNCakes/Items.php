@@ -23,7 +23,7 @@
         </script>
         
         <!-- Internal JS -->
-        <script defer src="js/main.js"></script>
+        <script defer src="js/item.js"></script>
 </head>
 <body>
     <?php 
