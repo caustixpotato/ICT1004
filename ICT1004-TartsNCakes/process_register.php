@@ -54,6 +54,26 @@ if ($_SERVER["REQUEST_METHOD"]=="POST")  #validation the result when press regis
     $success = false;
     }
    }
+   
+    if (empty($_POST["phoneno"]))
+    {
+     $errorMsg .= "Phone number is needed.<br>";
+     $success = false;
+    }
+    else 
+    {
+        $num = sanitize_input($_POST["phoneno"]);
+    }
+    
+     if (empty($_POST["address"]))
+    {
+     $errorMsg .= "Address is needed.<br>";
+     $success = false;
+    }
+    else 
+    {
+        $addr = sanitize_input($_POST["address"]);
+    }
   
    
    //password validation

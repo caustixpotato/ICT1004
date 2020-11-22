@@ -21,7 +21,7 @@ Primary Buttons:
         display: none;
         position: absolute;
         background-color: cornflowerblue;
-        min-width: 70px;
+        min-width: 100px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
     }
@@ -32,6 +32,7 @@ Primary Buttons:
         text-decoration: none;
         display: block;
         font-size: 10px;
+        text-align: center;
     }
 
     .dropdown-content a:hover {color: orange;}
@@ -91,6 +92,7 @@ Primary Buttons:
                         </a>                   
                         <div class="dropdown-content">
                            <a href="profile.php">Profile</a>
+                           <a href="orderhistory.php">Order History</a>
                            <a href="logout.php">Logout</a>                   
                         </div>
                    </div>
@@ -118,8 +120,9 @@ Primary Buttons:
 
 
                 echo ' <li class="nav-item">
-                <a class="nav-link" title="cart" href="Cart.php">Shopping Cart              
-                  </a>                  
+                <a class="nav-link" title="Cart" href="Cart.php">
+                      <img src="images/cart.png" width="auto" height="40" class="d-inline-block align-center" alt="Cart" loading="lazy"/>Cart
+                  </a>                 
                   </li>';
             }
 
