@@ -61,7 +61,7 @@
                             </p>
                             <div class="collapse" id="Location1">
                                 <div class="card h-75">
-                                    <img class="card-img-top LOCATIONRESIZER" src="images/Chocolate Cake.jpg" alt="Cakes">
+                                    <img class="card-img-top LOCATIONRESIZER" src="images/localbake.jpg" alt="Cakes">
                                     <div class="card-body">
                                         <h4 class="card-title">Beigang Road Bakery</h4>
                                         <p class="card-text">
@@ -101,7 +101,7 @@
                             </p>
                             <div class="collapse" id="Location3">
                                 <div class="card h-75">
-                                    <img class="card-img-top LOCATIONRESIZER" src="images/Chocolate Cake.jpg" alt="Cakes">
+                                    <img class="card-img-top LOCATIONRESIZER" src="images/taiwanBake.PNG" alt="Cakes">
                                     <div class="card-body">
                                         <h4 class="card-title">Beigang Road Bakery</h4>
                                         <p class="card-text">
@@ -109,7 +109,7 @@
                                         </p>
                                     </div>
                                     <div class="card-footer py-4">
-                                        <a href="#" class="btn btn-secondary">PHONE NUMBER</a>
+                                        <a href="tel:123-456-789" class="btn btn-secondary">PHONE NUMBER</a>
                                     </div>
                                 </div>
                             </div>
