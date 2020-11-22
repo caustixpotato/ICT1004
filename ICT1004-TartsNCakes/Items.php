@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
               integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
               crossorigin="anonymous">
-    <link rel="stylesheet"  href="css/login.css">
+    <link rel="stylesheet"  href="css/items.css">
      
     <link rel="stylesheet" href="css/main.css" />
     
@@ -34,19 +34,43 @@
         $config = parse_ini_file('../../private/db1-config.ini');
         $conn = new mysqli($config['servername'], $config['username'],
         $config['password'], $config['dbname']);
-        $sql = "SELECT Img, Name FROM Items"; 
-        $result = mysqli_query($conn, $sql);
-        while($row = mysqli_fetch_array($result))
-        {
+        $sqlcake = "SELECT * FROM Items WHERE Category ='Cake'"; 
+        $resultcake = mysqli_query($conn, $sqlcake);
+        $sqltart = "SELECT * FROM Items WHERE Category ='Tart'"; 
+        $resulttart = mysqli_query($conn, $sqltart);
+        echo '<section id="cakes">';
+            echo '<h2>Cakes</h2>';
             echo '<div class = "container">';
             echo '<div class = "row">';
             echo '<article class="col-sm">';
-            echo '<figure>';
-            echo '<img src="data:image/jpeg;base64,'
-            .base64_encode( $row['Img'] ).'"/>';
-            echo '<figcaption>'.$row["Name"].'</figcaption>';
-        }
-        
+                echo '<figure>';
+                    while($row = mysqli_fetch_array($resultcake))
+                    {          
+                        echo '<img class="img-thumbnail" src="data:image/jpeg;base64,'
+                        .base64_encode( $row['Img'] ).'"/>';
+                        echo '<figcaption>'.$row["Name"].'</figcaption>';
+                        echo '<p class="desc" hidden>'.$row["Description"].'</p>';
+                    }
+                echo '</figure>';
+            echo '</article>';
+        echo '</section>';
+        echo '<section id="tarts">';
+            echo '<h2>Tarts</h2>';
+            echo '<div class = "container">';
+            echo '<div class = "row">';
+            echo '<article class="col-sm">';
+                echo '<figure>';
+                    while($row = mysqli_fetch_array($resulttart))
+                    {
+                        echo '<img class="img-thumbnail" src="data:image/jpeg;base64,'
+                        .base64_encode( $row['Img'] ).'"/>';
+                        echo '<figcaption>'.$row["Name"].'</figcaption>';
+                        echo '<p class="desc" hidden>'.$row["Description"].'</p>';
+                    }
+                echo '</figure>';
+            echo '</article>';
+        echo '</section>';
+        $conn->close();    
         
  ?>
     
