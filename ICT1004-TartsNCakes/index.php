@@ -38,7 +38,7 @@
         <main>
             <div class="jumbotron jumbotron-fluid bg-light">
                 <div class="jumbotron-background">
-                    <img src="images/sliced.png" class="blur ">
+                    <img src="images/sliced.png" style="color:rgba(255,255,255,0.7)">
                 </div>
                 <div class="container text-white text-center">
                     <h1 class="display-4">Tarts N' Cakes</h1>
