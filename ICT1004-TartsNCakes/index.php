@@ -30,37 +30,59 @@
 
     <body>
         <?php
-        include "phpFiles/nav.inc.php"
-        ;
+        include "phpFiles/nav.inc.php";
         ?> 
-        <header id="Content">
-            <div class="jumbotron-fluid text-center" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.15),rgba(255,255,255,0.7)), url(images/sliced.png)"> 
-                <h1 class="display-4">Tarts N' Cakes</h1>
-                <p class="lead">Best Thing Since Sliced Bread!</p>
-                <p><a href="#" class="btn btn-link" role="button">Shop Here</a></p>
-            </div>
+        <header>
+            <!--            FILLER-->
         </header>
-        
-        <main class="container">
-            <section id="dogs">
-                <h2>Dog shaped like cake!</h2>
-                <div class="row">
-                    <article id="pooDog" class="col-sm">
-                        <h3>Dogake</h3>
-                        <figure>
-                            <img class="img-thumbnail" src="images/poodle_small.jpg" alt="Poodle"
-                                 title="View larger image..." />
-                            <figcaption>Standard Poodle (Cake)</figcaption>
-                        </figure>
-                        <p>
-                            Definitely Not A Dog
-                            This cake is so realistic and showcases the master craftsmanship of 
-                            our finest cake artisans!
-                        </p>
-                    </article>
+        <main>
+            <div class="jumbotron jumbotron-fluid bg-light">
+                <div class="jumbotron-background">
+                    <img src="images/sliced.png" class="blur ">
+                </div>
+                <div class="container text-white text-center">
+                    <h1 class="display-4">Tarts N' Cakes</h1>
+                    <p class="lead">Best thing since Sliced Bread</p>
+                    <a class="btn btn-primary" href="#" role="button">Shop Here</a>
+                </div>
+            </div>
+            <!--            Intro Cards-->
+            <section id="services" class="container">
+                <div class="row text-center">
+                    <div class="col-md-6 mb-6">
+                        <div class="card h-75">
+                            <img class="card-img-top RESIZER" src="images/Almond Buttercream Macaron.jpg" alt="Tarts">
+                            <div class="card-body">
+                                <h4 class="card-title">Tangy Tarts</h4>
+                                <p class="card-text">
+                                    A tart is small pie filled with fruit or custard, with no top crust,
+                                    like the cherry tarts you bought at the bakery.
+                                </p>
+                            </div>
+                            <div class="card-footer py-4">
+                                <a href="#" class="btn btn-secondary">Tarts</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-6">
+                        <div class="card h-75">
+                            <img class="card-img-top RESIZER" src="images/Chocolate Cake.jpg" alt="Cakes">
+                            <div class="card-body">
+                                <h4 class="card-title">Classic Cakes</h4>
+                                <p class="card-text">
+                                    A cake is a baked dessert that's often topped with frosting or decorations.
+                                    For many people, it's not a proper birthday without a birthday cake.
+                                </p>
+                            </div>
+                            <div class="card-footer py-4">
+                                <a href="#" class="btn btn-secondary">Cakes</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
-<?php include "phpFiles/footer.inc.php"; ?> 
+        <?php include "phpFiles/footer.inc.php"; ?> 
     </body>
 </html>
