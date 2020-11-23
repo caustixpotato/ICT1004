@@ -38,6 +38,7 @@
         $resultcake = mysqli_query($conn, $sqlcake);
         $sqltart = "SELECT * FROM Items WHERE Category ='Tart'"; 
         $resulttart = mysqli_query($conn, $sqltart);
+        echo '<main>';
         echo '<section id="cakes">';
             echo '<h2>Cakes</h2>';
             echo '<div class = "container">';
@@ -54,22 +55,7 @@
                 echo '</figure>';
             echo '</article>';
         echo '</section>';
-        echo '<section id="tarts">';
-            echo '<h2>Tarts</h2>';
-            echo '<div class = "container">';
-            echo '<div class = "row">';
-            echo '<article class="col-sm">';
-                echo '<figure>';
-                    while($row = mysqli_fetch_array($resulttart))
-                    {
-                        echo '<img class="img-thumbnail" src="data:image/jpeg;base64,'
-                        .base64_encode( $row['Img'] ).'"/>';
-                        echo '<figcaption>'.$row["Name"].'</figcaption>';
-                        echo '<p class="desc" hidden>'.$row["Description"].'</p>';
-                    }
-                echo '</figure>';
-            echo '</article>';
-        echo '</section>';
+        echo '</main>';
         $conn->close();    
         
  ?>
