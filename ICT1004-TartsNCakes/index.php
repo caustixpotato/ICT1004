@@ -43,10 +43,18 @@
                 <div class="container">
                     <h1>Tarts N' Cakes</h1>
                     <p>Best thing since Sliced Bread</p>
-                    <a class="btn btn-primary" href="#" role="button">Shop Here</a>
+                    <?php
+                    if (!isset($_SESSION['whoami'])) {
+                        echo '
+                            <a class="btn btn-primary" href="register.php" role="button">Shop Here</a>
+                            ';
+                    } else {
+                        echo ' <a class="btn btn-primary" href="#" role="button">Shop Here</a>';
+                    }
+                    ?>
                 </div>
             </div>
-            
+
             <!--            Intro Cards-->
             <section id="services" class="container">
                 <div class="row text-center">
@@ -84,6 +92,6 @@
                 </div>
             </section>
         </main>
-        <?php include "phpFiles/footer.inc.php"; ?> 
+<?php include "phpFiles/footer.inc.php"; ?> 
     </body>
 </html>

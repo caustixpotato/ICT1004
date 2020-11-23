@@ -39,14 +39,6 @@ Primary Buttons:
 
     .dropdown:hover .dropdown-content {display: block;}
 
-    /*.bg-dark {
-        background: transparent !important;
-    }
-    
-    .bg-dark.scrolled{
-        background: #000 !important;
-    }*/
-
 </style>
 
 <nav id ="navbar" class="navbar navbar-expand-lg navbar-light fixed-top">
