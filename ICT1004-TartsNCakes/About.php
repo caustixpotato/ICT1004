@@ -95,7 +95,7 @@
                    食品業界の要件を満たすためにレシピを強化します。
                 </p>
     
-                <h3><a href="Login.php" title="promo">View Our Promotion</a></h3>
+                <h3><a href="Login.php" title="promo">Login to view our promotion now!</a></h3>
             
            
         </article>

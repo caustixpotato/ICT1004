@@ -1,3 +1,4 @@
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Tarts N's Cake</title>
@@ -8,6 +9,7 @@
               crossorigin="anonymous">
       <link rel="stylesheet" href="css/main.css" />
       <link rel="stylesheet" href="css/register.css" />
+      <link rel="stylesheet" href="css/styling_nav.css" />
       
        <!-- Bootstrap 4.5.3 jQuery-->
         <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -46,7 +48,7 @@
   }
 </script>
     
-<title>World of Pets</title>      
+
 </head>
 
 <body>
@@ -76,7 +78,7 @@
               </div>
               <div class="form-gorup">
                    <label for="lname">Last Name:</label>            
-                   <input class="form-control "type="text" id="lname"
+                   <input class="form-control" type="text" id="lname"
                    required maxlength="45" name="lname" placeholder="Enter last name">             
               </div>   
               <div class="form-gorup">

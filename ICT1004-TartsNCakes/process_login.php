@@ -118,8 +118,8 @@ function authenticateUser()
 
 
 
-
-<html >
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
     <?php
       include "cssandjava.inc.php" //css and java

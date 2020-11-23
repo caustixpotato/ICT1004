@@ -1,3 +1,4 @@
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
       <title>Tarts N's Cake</title>
@@ -72,30 +73,30 @@
                
                <form id="form1" name="form1" action="process_updateprofile.php" method="post">
               <div class="form-gorup">
-                   <label for="fname">First Name:</label>            
+                   <label for="newfname">First Name:</label>            
                    <input class="form-control " type="text" id="newfname" required  name="newfname"                   
                          value="<?php echo $userinfo['fname'];?>">    
                   
               </div>
               <div class="form-gorup">
-                   <label for="lname">Last Name:</label>            
-                   <input class="form-control "type="text" id="newlname"
+                   <label for="newlname">Last Name:</label>            
+                   <input class="form-control" type="text" id="newlname"
                    required maxlength="45" name="newlname" value="<?php echo $userinfo['lname'];?>">             
               </div>   
                    
                <div class="form-gorup">
-                   <label for="email">Email:</label>            
+                   <label for="newemail">Email:</label>            
                    <input class="form-control" type="email" id="newemail" required name="newemail"                   
                           placeholder="Enter email" title="Please enter a valid email addess" value="<?php echo $userinfo['email'];?>">            
               </div>      
                          
               <div class="form-gorup">
-                   <label for="phoneno">Phone number:</label> 
+                   <label for="newphoneno">Phone number:</label> 
                    <input  class="form-control" type="text" id="newphoneno"  required maxlength="11" name="newphoneno" 
                            pattern="[0-9]{8}" title="Please enter phone number as 8-digit numbers only" value="<?php echo $userinfo['phoneno'];?>">  
               </div>               
               <div class="form-gorup">
-                   <label for="address">Address:</label> 
+                   <label for="newaddress">Address:</label> 
                    <input  class="form-control" type="text" id="newaddress"  required  name="newaddress" 
                          value="<?php echo $userinfo['address'];?>">  
               </div>

@@ -1,3 +1,4 @@
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
       <title>Tarts N's Cake</title>
@@ -52,11 +53,11 @@
             
         <form name="form1" action="process_login.php" method="post" >    	
               <div class="form-gorup1">
-            <label for="user">Email<span>*</span></label>
+            <label for="email">Email<span>*</span></label>
             <input type="email"  class="form-control" placeholder="Enter your email here" name="email" id="email" required>
               </div>
              <div class="form-gorup1">
-            <label for="pass">Password<span>*</span></label>
+            <label for="pwd">Password<span>*</span></label>
             <input type="password" class="form-control" placeholder="Enter your password here" name="pwd" id="pwd" required>
              </div>
              <div class="form-gorup1">

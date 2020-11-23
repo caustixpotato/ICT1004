@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
     <head> <!--header-->
         <title>Tarts N's Cake</title>
         <meta charset="UTF-8">
@@ -40,7 +40,7 @@
         <main>
             <div class="jumbotron jumbotron-fluid bg-light">
                 <div class="jumbotron-background">
-                    <img src="images/sliced.png" style="color:rgba(255,255,255,0.7)">
+                    <img src="images/sliced.png" alt="banner" style="color:rgba(255,255,255,0.7)">
                 </div>
                 <div class="container">
                     <div class="txt text-white text-center">
@@ -55,7 +55,7 @@
                 <div class="row text-center">
                     <div class="col-md-6 mb-6">
                         <div class="card h-75">
-                            <img class="card-img-top RESIZER" src="images/Almond Buttercream Macaron.jpg" alt="Tarts">
+                            <img class="card-img-top RESIZER" src="images/Almond%20Buttercream%20Macaron.jpg" alt="Tarts">
                             <div class="card-body">
                                 <h4 class="card-title">Tangy Tarts</h4>
                                 <p class="card-text">
@@ -71,7 +71,7 @@
 
                     <div class="col-md-6 mb-6">
                         <div class="card h-75">
-                            <img class="card-img-top RESIZER" src="images/Chocolate Cake.jpg" alt="Cakes">
+                            <img class="card-img-top RESIZER" src="images/Chocolate%20Cake.jpg" alt="Cakes">
                             <div class="card-body">
                                 <h4 class="card-title">Classic Cakes</h4>
                                 <p class="card-text">
