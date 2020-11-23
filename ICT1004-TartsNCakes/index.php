@@ -64,7 +64,7 @@
                                 </p>
                             </div>
                             <div class="card-footer py-4">
-                                <a href="#" class="btn btn-secondary">Tarts</a>
+                                <a href="Tarts.php" class="btn btn-secondary">Tarts</a>
                             </div>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
                                 </p>
                             </div>
                             <div class="card-footer py-4">
-                                <a href="#" class="btn btn-secondary">Cakes</a>
+                                <a href="Cakes.php" class="btn btn-secondary">Cakes</a>
                             </div>
                         </div>
                     </div>
