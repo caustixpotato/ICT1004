@@ -48,12 +48,12 @@
         
            <div id="container">
              
-              <img src="images/Chocolate%20Cake.jpg" alt="" class="pic">
-              <img src="images/Oreacheese%20Cake.jpg" alt="" class="pic">
-              <img src="images/Strawberry%20shortCake.png" alt="" class="pic">
-              <img src="images/Almond%20Buttercream%20Macaron.jpg" alt="" class="pic">
-              <img src="images/Lemon%20Meringue%20Tart.png" alt="" class="pic">
-              <img src="images/cake_genmaichiffon_1.jpg" alt="" class="pic">
+              <img src="images/Chocolate%20Cake.jpg" alt="chocolatecake" class="pic">
+              <img src="images/Oreacheese%20Cake.jpg" alt="oreacheesecake" class="pic">
+              <img src="images/Strawberry%20shortCake.png" alt="shortcake" class="pic">
+              <img src="images/Almond%20Buttercream%20Macaron.jpg" alt="almondbuttercreamcake" class="pic">
+              <img src="images/Lemon%20Meringue%20Tart.png" alt="lemontart" class="pic">
+              <img src="images/cake_genmaichiffon_1.jpg" alt="gemaichiffon" class="pic">
             </div>
         
         

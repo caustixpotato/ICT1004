@@ -20,7 +20,7 @@ Primary Buttons:
     .dropdown-content {
         display: none;
         position: absolute;
-        background-color: cornflowerblue;
+        background-color: #003366;
         min-width: 100px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
@@ -35,7 +35,7 @@ Primary Buttons:
         text-align: center;
     }
 
-    .dropdown-content a:hover {color: orange;}
+    .dropdown-content a:hover {color: #FAFF00;}
 
     .dropdown:hover .dropdown-content {display: block;}
 
@@ -51,7 +51,7 @@ Primary Buttons:
 
 <nav id ="navbar" class="navbar navbar-expand-lg navbar-light fixed-top">
     <a class="navbar-brand" href="index.php">
-        <img src="images/logo.png" width="150" height="100" class="d-inline-block align-center" alt="Tarts N Cakes Logo" loading="lazy"/>
+        <img src="images/logo.png" width="200" height="100" class="d-inline-block align-center" alt="Tarts N Cakes Logo" loading="lazy"/>
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" 
