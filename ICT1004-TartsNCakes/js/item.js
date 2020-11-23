@@ -12,7 +12,7 @@ $( document ).ready(function()
     registerEventHandler();
 });
 
-function registerEventHandlers()
+function registerEventHandler()
 {
 	var thumbnails = document.getElementsByClassName("img-thumbnail"); //returns an array called thumbnails
         if (thumbnails !== null)
@@ -33,7 +33,6 @@ function registerEventHandlers()
 function togglePopup(event)
 {
 	var popup = document.getElementById(ID_POPUP);
-        var desc = document.getElementsByClassName("desc");
 	if (popup === null)
 	{
 		popup = document.createElement("span");
@@ -42,9 +41,11 @@ function togglePopup(event)
 		var thumbnail = event.target;
 		var image = thumbnail.src; 
 		//var big_image = small_image.replace("_small", "_large");
-		popup.innerHTML = '<img src=' + image + '>' +
-                                  '<p>'+ document.write(desc.item(0)) +'</p>';
-		thumbnail.insertAdjacentElement("beforebegin", popup);
+		popup.innerHTML = '<div class = "container">'+
+                                  '<img src=' + image + '>' +
+                                  '<h3>'+ document.getElementsByClassName("desc").textContent +'</h3></a>'+
+                                  '<a class="btn btn-primary" href="#" role="button">Add To Cart</div>';
+		thumbnail.insertAdjacentElement("afterend", popup);
 	}
 	else
 	{
