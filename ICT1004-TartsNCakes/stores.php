@@ -51,7 +51,7 @@
                     <div class="row">
                         <!--LOCATION CARD-->
                         <div class="card" style="width: 18rem;">
-                            <img id ="card-img"class="card-img-top" src="https://farm6.staticflickr.com/5068/5676932091_e919d964f2_q_d.jpg" alt="Card image cap">
+                            <img id ="card-img"class="card-img-top" src="http://images.nymag.com/images/2/daily/2010/09/20100917_fpbakery_190x190.jpg" alt="Default Bakery Img">
                             <div class="card-body">
                                 <h5 id = "card-title" class="card-title">Bakery</h5>
                                 <p id = "card-body" class="card-text">Click the countries for more Info!</p>
