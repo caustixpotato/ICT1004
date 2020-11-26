@@ -75,8 +75,7 @@ function authenticateUser()
      else
     {
     // Prepare the statement:
-    $stmt = $conn->prepare("SELECT * FROM cake_member WHERE
-    email=?");
+    $stmt = $conn->prepare("SELECT * FROM cake_member WHERE email =? AND status = 'Active'");
     // Bind & execute the query statement:
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -85,15 +84,14 @@ function authenticateUser()
     {
     // Note that email field is unique, so should only have
     // one row in the result set.
-    session_start();
+  
     $row = $result->fetch_assoc();
     $fname = $row["fname"];
     $lname = $row["lname"];
     $email = $row["email"];
-    $userid = $row["userID"];
-    $_SESSION['whoami'] = $email;
-    $_SESSION['username'] = $lname;
-    $_SESSION['userid'] = $userid;
+    
+    $pwd_hashed = $row["password"];
+    
     $pwd_hashed = $row["password"];
     // Check if the password matches:
     if (!password_verify($_POST["pwd"], $pwd_hashed))
@@ -102,11 +100,19 @@ function authenticateUser()
    // need to know which one they got right or wrong. :)
     $errorMsg = "Email not found or password doesn't match...";
     $success = false;
-   }
+    }
+    else
+    {
+          session_start();
+          $userid = $row["userID"];
+          $_SESSION['whoami'] = $email;
+          $_SESSION['username'] = $lname;
+          $_SESSION['userid'] = $userid;
+    }
    }
  else
  {
- $errorMsg = "Email not found or password doesn't match...";
+ $errorMsg = "Need to verify your account first or your Email not found or password doesn't match...";
  $success = false;
  }
  $stmt->close();
@@ -121,9 +127,10 @@ function authenticateUser()
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php
-      include "cssandjava.inc.php" //css and java
-     ?>
+    <link rel="stylesheet" href="css/main.css" />
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+              integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+              crossorigin="anonymous">
 <title>Register result</title>      
 </head>
 <body>

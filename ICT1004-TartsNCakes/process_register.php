@@ -1,4 +1,8 @@
 <?php
+
+require('PHPMailer/PHPMailerAutoload.php'); 
+require('crediantial.php');
+
 $fname = $email = $lname = $pwd_hashed = $errorMsg = "";
 $success = true;
 
@@ -114,6 +118,7 @@ function saveMemberToDB()
    $num = $_POST['phoneno'];
    $addr = $_POST['address'];
    $bd = $_POST['birthdate'];
+   $token = md5(rand('10000', '99999'));
    
   // Create database connection.
    $config = parse_ini_file('../../private/db1-config.ini');
@@ -130,11 +135,13 @@ function saveMemberToDB()
    
    // Prepare the statement:
    $stmt = $conn->prepare("INSERT INTO cake_member(fname, lname,
-   email, password, phoneno, birthdate, address) VALUES (?, ?, ?, ?, '$num', '$bd', '$addr')");
+   email, password, phoneno, birthdate, address,token,status) VALUES (?, ?, ?, ?, '$num', '$bd', '$addr', '".$token."','Inactive')");
    
    $sql = "select * from cake_member where email = '$email' ";
    $search_result = mysqli_query($conn, $sql);
    $emailfound = mysqli_num_rows($search_result);
+   
+   
    
    if($emailfound >= 1)
    {
@@ -146,6 +153,41 @@ function saveMemberToDB()
     $success = false;
      $stmt->close();
    }
+   
+   $url = 'http://'.$_SERVER['SERVER_NAME'].'/ICT1004-TartsNCakes/verify.php?name='.$lname.'&token='.$token;                                // Set email format to HTML
+		
+		$output = '<div>Thanks for registering with Tarts Ns Cake account. Please click this link to complete this registation <br>'.$url.'</div>';
+
+		if ($search_result == true) 
+                {
+			$mail = new PHPMailer();
+			$mail->isSMTP();  
+			//$mail->SMTPDebug = 4;                 // debug mode
+			$mail->Host = 'smtp.gmail.com';        // Specify main and backup SMTP servers
+			$mail->SMTPAuth = true;                // Enable SMTP authentication
+			$mail->Username = EMAIL;               // SMTP username
+			$mail->Password = PASS;                // SMTP password
+			$mail->SMTPSecure = 'tls';             // Enable TLS encryption, `ssl` also accepted
+			$mail->Port = 587;                      // TCP port to connect to
+
+			$mail->setFrom(EMAIL, 'info');
+			$mail->addAddress($email, $lname);     // Add a recipient
+				
+			$mail->isHTML(true);
+
+			$mail->Subject = 'Register confirmation';
+			$mail->Body    = $output;
+			//$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+			if(!$mail->send()) 
+                        {
+				echo 'Message could not be sent.';
+				echo 'Mailer Error: ' . $mail->ErrorInfo;
+			} else 
+                        {
+				$msg = '<div class="alert alert-success">Congratulation, Your registration has been successful. please verify your account.</div>';
+			}
+		}
    
    // Bind & execute the query statement:
    $stmt->bind_param("ssss", $fname, $lname, $email, $pwd_hashed);
@@ -167,9 +209,10 @@ function saveMemberToDB()
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php
-      include "cssandjava.inc.php" //css and java
-     ?>
+    <link rel="stylesheet" href="css/main.css" />
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+              integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+              crossorigin="anonymous">
 <title>Register result</title>      
 </head>
 <body>
@@ -192,8 +235,8 @@ function saveMemberToDB()
              if ($success)
              {
                  saveMemberToDB();
-                 echo "<h2>Your registration is success!</h2>";
-                 echo "<h4>Thank you for signing up, " . $fname . " " . $lname . ".</h4>";
+                 echo "<h2>Your registration is success please verify your email first!</h2>";
+                 echo "<h4>Thank you for signing up, " . $fname . " " . $lname . ".</h4>";             
                  echo "<a href='Login.php' class='btn btn-danger'>Log-in</a>";
                  
              }

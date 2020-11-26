@@ -54,7 +54,8 @@
         <form name="form1" action="process_login.php" method="post" >    	
               <div class="form-gorup1">
             <label for="email">Email<span>*</span></label>
-            <input type="email"  class="form-control" placeholder="Enter your email here" name="email" id="email" required>
+            <input type="email"  class="form-control" placeholder="Enter your email here" pattern="^[a-zA-Z0-9]+@gmail\.com$" 
+                   title="Please enter a valid GMAIL addess" name="email" id="email" required>
               </div>
              <div class="form-gorup1">
             <label for="pwd">Password<span>*</span></label>

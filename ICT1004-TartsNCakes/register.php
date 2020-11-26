@@ -9,7 +9,7 @@
               crossorigin="anonymous">
       <link rel="stylesheet" href="css/main.css" />
       <link rel="stylesheet" href="css/register.css" />
-      <link rel="stylesheet" href="css/styling_nav.css" />
+      
       
        <!-- Bootstrap 4.5.3 jQuery-->
         <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -25,6 +25,11 @@
         
         <!-- Internal JS -->
         <script defer src="js/main.js"></script>
+        
+        <script>
+	  AOS.init();
+	</script>
+
       
        
 <script>
@@ -83,8 +88,8 @@
               </div>   
               <div class="form-gorup">
                    <label for="email">Email:</label>            
-                   <input class="form-control" type="email" id="email" required name="email"                   
-                          placeholder="Enter email" title="Please enter a valid email addess">            
+                   <input class="form-control" type="email" id="email" pattern="^[a-zA-Z0-9]+@gmail\.com$" required name="email"                   
+                          placeholder="Enter email" title="Please enter a valid GMAIL addess">            
               </div>
               <div class="form-gorup">
                    <label for="pwd">Password:</label>            
