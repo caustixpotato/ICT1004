@@ -66,7 +66,7 @@
                    We started our first outlet at Telok Ayer road, over the 21 years we have launched our own main factory to produce
                    our own bakery product.
                    <br>
-                   Under our operation of Tarts N's Cakes Pte Ltd, we have launched our others outlets store at Orchard and also venture outside to Malaysia. We have establishes numerous collaboration with others brands and have gain quite a reputation in the bakery industries.
+                   Under our operation of Tarts N's Cakes Pte Ltd, we have launched outlets in Malaysia and Taiwan. We have established numerous collaboration with others brands and have gain quite a reputation in the bakery industries.
                    <br>
                    We offer a huge range of delicacies, from cakes, tarts to bread. All faithfuly recreated daily from the oven. We uses Tarts N's Cakes’s recipes 
                    and baked on site using only the freshest and high quality ingredients for all our outlets over the world. We managed our quality at all stages 

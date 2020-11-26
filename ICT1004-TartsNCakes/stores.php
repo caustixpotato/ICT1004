@@ -27,6 +27,7 @@
 
         <!-- Internal JS -->
         <script defer src="js/main.js"></script>
+        <script defer src="js/ourstores.js"></script>
     </head>
 
     <body>
@@ -45,77 +46,28 @@
             <article id="stores_info">
                 <div class="container">
                     <div class="row">
-                        <!--STORES-->
-                        <div class="col">
-                            <h2>Our Stores</h2>
-                            <p>
-                                WE got many stores ok
-                            </p>
-                        </div>
-                        <!--LOCATION CARDS-->
-                        <div class="col">
-                            <!--1st Location>-->
-                            <button class="btn btn-primary mt-1" type="button" data-toggle="collapse" data-target="#Location1" aria-expanded="false" aria-controls="collapseExample">
-                                Singapore
-                            </button>
-                            </p>
-                            <div class="collapse" id="Location1">
-                                <div class="card h-75">
-                                    <img class="card-img-top LOCATIONRESIZER" src="images/localbake.jpg" alt="Cakes">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Beigang Road Bakery</h4>
-                                        <p class="card-text">
-                                            112 Telok Ayer St, Singapore 068581
-                                        </p>
-                                    </div>
-                                    <div class="card-footer py-4">
-                                        <a href="#" class="btn btn-secondary">PHONE NUMBER</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--2nd Location-->
-                            <button class="btn btn-primary mt-1" type="button" data-toggle="collapse" data-target="#Location2" aria-expanded="false" aria-controls="collapseExample">
-                                Malaysia
-                            </button>
-                            </p>
-                            <div class="collapse" id="Location2">
-                                <div class="card h-75">
-                                    <img class="card-img-top LOCATIONRESIZER" src="images/Chocolate Cake.jpg" alt="Cakes">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Beigang Road Bakery</h4>
-                                        <p class="card-text">
-                                            Jalan Serangkai 2, Taman Bukit Dahlia, 81700 Pasir Gudang, Johor, Malaysia
-                                        </p>
-                                    </div>
-                                    <div class="card-footer py-4">
-                                        <a href="#" class="btn btn-secondary">PHONE NUMBER</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--3rd Location-->
-                            <button class="btn btn-primary mt-1" type="button" data-toggle="collapse" data-target="#Location3" aria-expanded="false" aria-controls="collapseExample">
-                                Taiwan
-                            </button>
-                            </p>
-                            <div class="collapse" id="Location3">
-                                <div class="card h-75">
-                                    <img class="card-img-top LOCATIONRESIZER" src="images/taiwanBake.PNG" alt="Cakes">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Beigang Road Bakery</h4>
-                                        <p class="card-text">
-                                            No. 102號, Section 2, Beigang Road, Taibao City, Chiayi County, Taiwan 612
-                                        </p>
-                                    </div>
-                                    <div class="card-footer py-4">
-                                        <a href="tel:123-456-789" class="btn btn-secondary">PHONE NUMBER</a>
-                                    </div>
-                                </div>
+                        <h2>Our Stores</h2>
+                    </div>
+                    <div class="row">
+                        <!--LOCATION CARD-->
+                        <div class="card" style="width: 18rem;">
+                            <img id ="card-img"class="card-img-top" src="https://farm6.staticflickr.com/5068/5676932091_e919d964f2_q_d.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 id = "card-title" class="card-title">Bakery</h5>
+                                <p id = "card-body" class="card-text">Click the countries for more Info!</p>
+                                <p>Opening Hours:</p>
+                                <p id = "card-operating" class="cardtext"> </p>
+                                <a id = "phone-link" href="#">Call Us!</a>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div class="row">
+                        <div class="btn-group" role="group" aria-label="Button_Countries">
+                            <button id="myBtn1" class="btn btn-secondary">Singapore</button>
+                            <button id="myBtn2"class="btn btn-secondary">Malaysia</button>
+                            <button id="myBtn3" class="btn btn-secondary">Taiwan</button>
+                        </div>
+                    </div>
                 </div>
             </article>
         </section>
