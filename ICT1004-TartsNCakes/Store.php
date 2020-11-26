@@ -25,7 +25,6 @@
         <!-- Internal JS -->
         <script defer src="js/item.js"></script>
 </head>
-
 <body>
     <?php 
         include "phpFiles/nav.inc.php"
@@ -35,11 +34,26 @@
         $config = parse_ini_file('../../private/db1-config.ini');
         $conn = new mysqli($config['servername'], $config['username'],
         $config['password'], $config['dbname']);
-        $sqlcake = "SELECT * FROM Items WHERE Category ='Cake'"; 
-        $resultcake = mysqli_query($conn, $sqlcake);
         $sqltart = "SELECT * FROM Items WHERE Category ='Tart'"; 
         $resulttart = mysqli_query($conn, $sqltart);
         echo '<main>';
+        echo '<section id="Tarts>'; 
+        echo '<h2>Tarts</h2>';
+            echo '<div class = "row text-center">';
+            echo '<article class="col-sm">';
+                echo '<figure>';
+                    while($row = mysqli_fetch_array($resulttart))
+                    {
+                        echo '<img class="img-thumbnail" src="data:image/jpeg;base64,'
+                        .base64_encode( $row['Img'] ).'"/>';
+                        echo '<figcaption>'.$row["Name"].'</figcaption>'
+                                ;?>
+                        <span class="desc" style="display:none"><?php$row["Description"]?></span>;
+<?php
+                    }
+                echo '</figure>';
+            echo '</article>';
+        echo '</section>';
         echo '<section id="cakes" class = "container">';
             echo '<h2>Cakes</h2>';           
             echo '<div class = "row text-center">';
@@ -57,6 +71,7 @@
         echo '</section>';
         echo '</main>';
         $conn->close();    
+        
  ?>
     
     <?php
