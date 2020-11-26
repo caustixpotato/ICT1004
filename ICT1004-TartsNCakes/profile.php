@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
       <title>Tarts N's Cake</title>
-        <link rel="stylesheet" href="css/profile.css" />
+        <link rel="stylesheet" href="css/profile.css"/>
        <?php
         include 'phpFiles/headcontents.inc.php';
         ?>
@@ -45,14 +45,17 @@
         </header>
   
 <main class="container">        
-           
-               <h1><?php echo $userinfo['lname'];?>'s Profile</h1>        
+                <img id="profileimg" alt="profilepicture" src="<?php echo $userinfo['profilepic']?>">
+                <br>
+                <h1 style="color:darkgrey;"><?php echo $userinfo['lname'];?>'s Profile</h1>        
+               <br>
+               <br>
                <p>             
                    Manage and edit your account info.  
                </p>  
              
                
-               <form id="form1" name="form1" action="process_updateprofile.php" method="post">
+               <form id="form1" enctype="multipart/form-data" name="form1" action="process_updateprofile.php" method="post">
               <div class="form-gorup">
                    <label for="newfname">First Name:</label>            
                    <input class="form-control " type="text" id="newfname" required  name="newfname"                   
@@ -82,13 +85,31 @@
                          value="<?php echo $userinfo['address'];?>">  
               </div>
               
-                                       
+              <div class="form-check">
+                     <label for="fileToUpload">Update profile pic:</label>
+                     <input type="file" name="fileToUpload" id="fileToUpload">
+              </div>
+                   
+               <?php
+             
+           if(isset($_GET['fail']))
+           {
+               echo "<span style='color:red'>Upload Failed !!!!</span>";
+           }
+           if(isset($_GET['big']))
+           {
+               echo "<script>
+               alert('File Size Too Big, Fail To Upload File');
+               window.location.href='profile.php';
+               </script>";
+           }
+                   ?>                 
               <div class="form-check">
                    <label>                
                    <input required  type="checkbox" name="agree">Agree to terms and conditions.</label>            
               </div> 
               <div class="form-gorup">
-                   <button id="registerbtn" class="btn btn-primary" type="submit">Save</button> 
+                   <button id="savebtn" class="btn btn-primary" type="submit">Save</button> 
               </div>
             </form>
                                 
