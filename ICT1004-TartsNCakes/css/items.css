@@ -11,8 +11,8 @@ and open the template in the editor.
 
 .img-thumbnail
 {
-    display: inline-block;
-    width:  200px;
-    height: 200px;
+    display: block;
+    width:  50%;
+    height: 50%;
     text-align: center;
 }
