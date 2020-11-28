@@ -46,46 +46,57 @@
                 <div class = "row text-center">
                     <div class="col-sm">
                         <div id = "carousel" class = "carousel slide" data-ride = "carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel" data-slide-to="1"></li>
+                                <li data-target="#carousel" data-slide-to="2"></li>
+                            </ol>
                             <div class = "carousel-inner">
-                                <ul class="carousel-indicators"></ul>
-                                <?php 
+                                <?php
                                 $i = 0;
-                                while ($rowt = mysqli_fetch_array($resulttart)) { 
+                                while ($rowc = mysqli_fetch_array($resultcake)) {
                                     $actives = '';
-                                    if ($i == 0){
+                                    if ($i == 0) {
                                         $actives = 'active';
                                     }
                                     ?>
-                                
-                                    <div class = "carousel-item-active">
+                                    <li data-target="#carousel" data-slide-to="<?= $i; ?>" class ="<?= $actives; ?>"></li>
+                                    <div class = "carousel-item <?= $actives; ?>">
                                         <?php
-                                        echo '<img class="img-thumbnail" src="data:image/jpeg;base64,' . base64_encode($rowt['Img']) . '  "/>';
+                                        echo '<img class="img-thumbnail" src="data:image/jpeg;base64,' . base64_encode($rowc['Img']) . '  "/>';
                                         ?>
                                     </div>
-                                <?php } ?>
-                                <!-- Controls -->
-                                <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                                    <span class="carousel-control-prev-icon"></span>
-                                </a>
+                                    <?php
+                                    $i++;
+                                }
+                                ?>
                             </div>
+                            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section id="Cakes" class = "container">
+<!--            <section id="Cakes" class = "container">
                 <h2>Cakes</h2>
                 <div class = "row text-center">
                     <div class="col-sm">
                         <div id = "carousel" class = "carousel slide" data-ride = "carousel">
                             <div class = "carousel-inner">
                                 <ul class="carousel-indicators"></ul>
-                                <?php while ($rowc = mysqli_fetch_array($resultcake)) { ?>
+            <?php // while ($rowc = mysqli_fetch_array($resultcake)) {    ?>
                                     <div class = "carousel-item-active">
-                                        <?php echo '<img class="img-thumbnail" src="data:image/jpeg;base64,' . base64_encode($rowc['Img']) . '  "/>' ?>
+            <?php // echo '<img class="img-thumbnail" src="data:image/jpeg;base64,' . base64_encode($rowc['Img']) . '  "/>'    ?>
                                     </div>
-                                <?php } ?>
-                                <!-- Controls -->
+<?php // }    ?>
+                                 Controls 
                                 <a class="carousel-control-prev" href="#demo" data-slide="prev">
                                     <span class="carousel-control-prev-icon"></span>
                                 </a>
@@ -93,7 +104,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section>-->
 
         </main>
 
