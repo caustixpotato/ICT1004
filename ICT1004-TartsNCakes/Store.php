@@ -6,9 +6,10 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
               integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
               crossorigin="anonymous">
-        <link rel="stylesheet"  href="css/items.css">
-
         <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" href="css/item.css" />
+
+
 
         <!-- Bootstrap 4.5.3 jQuery-->
         <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -30,6 +31,13 @@
         include "phpFiles/nav.inc.php"
         ;
         ?>
+        <header id="Content">
+            <div class="jumbotron jumbotron-fluid text-center bg-cover" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.15),rgba(255,255,255,0.7)), url(images/sliced.png)">
+                <h1 class="display-4">Tarts N' Cakes</h1>
+                <hr class="lead">
+                <p>Best Thing Since Sliced Bread!</p>
+            </div>
+        </header>
         <?php
         $success = true;
         $config = parse_ini_file('../../private/db1-config.ini');
@@ -45,22 +53,83 @@
                 <h2>Tarts</h2>
                 <div class = "row text-center">
                     <div class="col-sm">
-                        <div id = "carousel" class = "carousel slide" data-ride = "carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel" data-slide-to="1"></li>
-                                <li data-target="#carousel" data-slide-to="2"></li>
-                            </ol>
-                            <div class = "carousel-inner">
+                        <div id = "carouselt" class = "carousel slide" data-ride = "carousel">
+                            <ul class="carousel-indicators">
                                 <?php
                                 $i = 0;
-                                while ($rowc = mysqli_fetch_array($resultcake)) {
+                                foreach ($resulttart as $rowt) {
                                     $actives = '';
                                     if ($i == 0) {
                                         $actives = 'active';
                                     }
                                     ?>
-                                    <li data-target="#carousel" data-slide-to="<?= $i; ?>" class ="<?= $actives; ?>"></li>
+                                    <li data-target="#carouselt" data-slide-to="<?= $i; ?>" class ="<?= $actives; ?>"></li>
+                                    <?php
+                                    $i++;
+                                }
+                                ?>
+                            </ul>
+                            <div class = "carousel-inner">
+                                <?php
+                                $i = 0;
+                                foreach ($resulttart as $rowt) {
+                                    $actives = '';
+                                    if ($i == 0) {
+                                        $actives = 'active';
+                                    }
+                                    ?>
+                                    <!--                                    <div class = "carousel-item $actives; ">-->
+                                    <div class = "carousel-item<?= $actives; ?>" style = "background-image: url(data:image/jpeg;base64,<?= base64_encode($rowt['Img']); ?>);
+                                    height:100px; width:300px; background-size:cover;background-repeat: no-repeat;background-position: center;margin: auto;">
+                                        <img src="data:image/jpeg;base64,<?= base64_encode($rowt['Img']); ?>" style="visibility: hidden;">
+                                    </div>
+                                    <?php
+                                    $i++;
+                                }
+                                ?>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselt" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselt" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="Tarts" class = "container">
+                <h2>Cakes</h2>
+                <div class = "row text-center">
+                    <div class="col-sm">
+                        <div id = "carouselc" class = "carousel slide" data-ride = "carousel">
+                            <ul class="carousel-indicators">
+                                <?php
+                                $i = 0;
+                                foreach ($resultcake as $rowc) {
+                                    $actives = '';
+                                    if ($i == 0) {
+                                        $actives = 'active';
+                                    }
+                                    ?>
+                                    <li data-target="#carouselc" data-slide-to="<?= $i; ?>" class ="<?= $actives; ?>"></li>
+                                    <?php
+                                    $i++;
+                                }
+                                ?>
+                            </ul>
+                            <div class = "carousel-inner">
+                                <?php
+                                $i = 0;
+                                foreach ($resultcake as $rowc) {
+                                    $actives = '';
+                                    if ($i == 0) {
+                                        $actives = 'active';
+                                    }
+                                    ?>
                                     <div class = "carousel-item <?= $actives; ?>">
                                         <?php
                                         echo '<img class="img-thumbnail" src="data:image/jpeg;base64,' . base64_encode($rowc['Img']) . '  "/>';
@@ -71,11 +140,11 @@
                                 }
                                 ?>
                             </div>
-                            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                            <a class="carousel-control-prev" href="#carouselc" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
                             </a>
-                            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                            <a class="carousel-control-next" href="#carouselc" role="button" data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
@@ -83,28 +152,6 @@
                     </div>
                 </div>
             </section>
-
-<!--            <section id="Cakes" class = "container">
-                <h2>Cakes</h2>
-                <div class = "row text-center">
-                    <div class="col-sm">
-                        <div id = "carousel" class = "carousel slide" data-ride = "carousel">
-                            <div class = "carousel-inner">
-                                <ul class="carousel-indicators"></ul>
-            <?php // while ($rowc = mysqli_fetch_array($resultcake)) {    ?>
-                                    <div class = "carousel-item-active">
-            <?php // echo '<img class="img-thumbnail" src="data:image/jpeg;base64,' . base64_encode($rowc['Img']) . '  "/>'    ?>
-                                    </div>
-<?php // }    ?>
-                                 Controls 
-                                <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                                    <span class="carousel-control-prev-icon"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>-->
 
         </main>
 
