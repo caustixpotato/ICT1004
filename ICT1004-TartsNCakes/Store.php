@@ -45,13 +45,28 @@
                 <h2>Tarts</h2>
                 <div class = "row text-center">
                     <div class="col-sm">
-                        <div id = "carouselExampleControls" class = "carousel slide" data-ride = "carousel">
+                        <div id = "carousel" class = "carousel slide" data-ride = "carousel">
                             <div class = "carousel-inner">
-                                <?php while ($rowt = mysqli_fetch_array($resulttart)) { ?>
-                                    <div class = "carousel-item active">
-                                        <?php echo '<img class="img-thumbnail" src="data:image/jpeg;base64,' . base64_encode($rowt['Img']) . '  "/>' ?>
+                                <ul class="carousel-indicators"></ul>
+                                <?php 
+                                $i = 0;
+                                while ($rowt = mysqli_fetch_array($resulttart)) { 
+                                    $actives = '';
+                                    if ($i == 0){
+                                        $actives = 'active';
+                                    }
+                                    ?>
+                                
+                                    <div class = "carousel-item-active">
+                                        <?php
+                                        echo '<img class="img-thumbnail" src="data:image/jpeg;base64,' . base64_encode($rowt['Img']) . '  "/>';
+                                        ?>
                                     </div>
                                 <?php } ?>
+                                <!-- Controls -->
+                                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                                    <span class="carousel-control-prev-icon"></span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -61,24 +76,28 @@
             <section id="Cakes" class = "container">
                 <h2>Cakes</h2>
                 <div class = "row text-center">
-                    <article class="col-sm">
-                        <div id = "carouselExampleControls" class = "carousel slide" data-ride = "carousel">
+                    <div class="col-sm">
+                        <div id = "carousel" class = "carousel slide" data-ride = "carousel">
                             <div class = "carousel-inner">
+                                <ul class="carousel-indicators"></ul>
                                 <?php while ($rowc = mysqli_fetch_array($resultcake)) { ?>
-                                    <div class = "carousel-item active">
+                                    <div class = "carousel-item-active">
                                         <?php echo '<img class="img-thumbnail" src="data:image/jpeg;base64,' . base64_encode($rowc['Img']) . '  "/>' ?>
                                     </div>
                                 <?php } ?>
+                                <!-- Controls -->
+                                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                                    <span class="carousel-control-prev-icon"></span>
+                                </a>
                             </div>
                         </div>
-                    </article>
+                    </div>
                 </div>
             </section>
 
         </main>
-        <?php>
-        $conn->close();
-        ?>
+
+        <?php $conn->close(); ?>
 
         <?php
         include "footer.inc.php"; //add/include the content from footer.inc.php
