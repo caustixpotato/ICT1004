@@ -92,7 +92,7 @@ function authenticateUser()
     
     $pwd_hashed = $row["password"];
     
-    $pwd_hashed = $row["password"];
+   
     // Check if the password matches:
     if (!password_verify($_POST["pwd"], $pwd_hashed))
     {

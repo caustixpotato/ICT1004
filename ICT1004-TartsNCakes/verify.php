@@ -38,7 +38,7 @@
 	$result = mysqli_query($conn,$select);
 	if ($result) 
         {
-		echo "<h2>Verify successful. you can log in now</h2>";
+		echo "<h2>Verify successful, " . $name . "  you can log in now</h2>";
                 echo "<a href='Login.php' class='btn btn-danger'>Login now</a>";
 	}else
         {

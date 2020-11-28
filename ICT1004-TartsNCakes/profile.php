@@ -2,30 +2,11 @@
 <html lang="en">
 <head>
       <title>Tarts N's Cake</title>
-      <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-              integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
-              crossorigin="anonymous">
-       <!-- Internal CSS-->
-        <link rel="stylesheet" href="css/main.css" />
-        <link rel="stylesheet" href="css/profile.css" />
-        
-         <!-- Bootstrap 4.5.3 jQuery-->
-        <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous">
-        </script>
-
-        <!--Bootstrap 4.5.3 JS-->
-        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-            crossorigin="anonymous">
-        </script>
-        
-        <!-- Internal JS -->
-        <script defer src="js/main.js"></script>
-         
+        <link rel="stylesheet" href="css/profile.css"/>
+       <?php
+        include 'phpFiles/headcontents.inc.php';
+        ?>
+       
  
 
     
@@ -64,14 +45,17 @@
         </header>
   
 <main class="container">        
-           
-               <h1><?php echo $userinfo['lname'];?>'s Profile</h1>        
+                <img id="profileimg" alt="profilepicture" src="<?php echo $userinfo['profilepic']?>">
+                <br>
+                <h1 style="color:darkgrey;"><?php echo $userinfo['lname'];?>'s Profile</h1>        
+               <br>
+               <br>
                <p>             
                    Manage and edit your account info.  
                </p>  
              
                
-               <form id="form1" name="form1" action="process_updateprofile.php" method="post">
+               <form id="form1" enctype="multipart/form-data" name="form1" action="process_updateprofile.php" method="post">
               <div class="form-gorup">
                    <label for="newfname">First Name:</label>            
                    <input class="form-control " type="text" id="newfname" required  name="newfname"                   
@@ -101,13 +85,31 @@
                          value="<?php echo $userinfo['address'];?>">  
               </div>
               
-                                       
+              <div class="form-check">
+                     <label for="fileToUpload">Update profile pic:</label>
+                     <input type="file" name="fileToUpload" id="fileToUpload">
+              </div>
+                   
+               <?php
+             
+           if(isset($_GET['fail']))
+           {
+               echo "<span style='color:red'>Upload Failed !!!!</span>";
+           }
+           if(isset($_GET['big']))
+           {
+               echo "<script>
+               alert('File Size Too Big, Fail To Upload File');
+               window.location.href='profile.php';
+               </script>";
+           }
+                   ?>                 
               <div class="form-check">
                    <label>                
                    <input required  type="checkbox" name="agree">Agree to terms and conditions.</label>            
               </div> 
               <div class="form-gorup">
-                   <button id="registerbtn" class="btn btn-primary" type="submit">Save</button> 
+                   <button id="savebtn" class="btn btn-primary" type="submit">Save</button> 
               </div>
             </form>
                                 

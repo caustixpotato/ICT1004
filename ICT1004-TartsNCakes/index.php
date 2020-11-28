@@ -2,7 +2,7 @@
 <html lang="en">
     <head> <!--header-->
         <?php
-        include 'headcontents.inc.php';
+        include 'phpFiles/headcontents.inc.php';
         ?>
 
         <!--Google Fonts-->
