@@ -35,7 +35,6 @@
 
             <!--            Intro Cards-->
             <section id="services" class="container">
-                <button onclick="window.location.href='temp_store.php';"> TEMPORARY STORE TO BE REMOVED </button>
                 <div class="row text-center">
                     <div class="col-md-6 mb-6">
                         <div class="card h-75">
@@ -48,7 +47,7 @@
                                 </p>
                             </div>
                             <div class="card-footer py-4">
-                                <a href="Store.php/#Tarts" class="btn btn-secondary">Tarts</a>
+                                <a href="Store.php#Tarts" class="btn btn-secondary">Tarts</a>
                             </div>
                         </div>
                     </div>
@@ -64,7 +63,7 @@
                                 </p>
                             </div>
                             <div class="card-footer py-4">
-                                <a href="Store.php/#Cakes" class="btn btn-secondary">Cakes</a>
+                                <a href="Store.php#Cakes" class="btn btn-secondary">Cakes</a>
                             </div>
                         </div>
                     </div>
