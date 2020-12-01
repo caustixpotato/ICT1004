@@ -7,7 +7,6 @@
               integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
               crossorigin="anonymous">
         <link rel="stylesheet" href="css/main.css" />
-        <link rel="stylesheet" href="css/item.css" />
 
 
 
@@ -24,22 +23,118 @@
         </script>
 
         <!-- Internal JS -->
-        <script defer src="js/item.js"></script>
+<!--        <script defer src="js/item.js"></script>-->
+        <style>
+            body {font-family: Arial, Helvetica, sans-serif;}
+
+            #myImg {
+                border-radius: 5px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            #myImg:hover {opacity: 0.7;}
+
+            /* The Modal (background) */
+            .modal {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                padding-top: 100px; /* Location of the box */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+            }
+
+            /* Modal Content (image) */
+            .modal-content {
+                margin: auto;
+                display: block;
+                width: 80%;
+                max-width: 700px;
+            }
+
+            /* Caption of Modal Image */
+            #caption {
+                margin: auto;
+                display: block;
+                width: 80%;
+                max-width: 700px;
+                text-align: center;
+                color: #ccc;
+                padding: 10px 0;
+                height: 150px;
+            }
+
+            /* Add Animation */
+            .modal-content, #caption {  
+                -webkit-animation-name: zoom;
+                -webkit-animation-duration: 0.6s;
+                animation-name: zoom;
+                animation-duration: 0.6s;
+            }
+
+            @-webkit-keyframes zoom {
+                from {-webkit-transform:scale(0)} 
+                to {-webkit-transform:scale(1)}
+            }
+
+            @keyframes zoom {
+                from {transform:scale(0)} 
+                to {transform:scale(1)}
+            }
+
+            /* The Close Button */
+            .close {
+                position: absolute;
+                top: 15px;
+                right: 35px;
+                color: #f1f1f1;
+                font-size: 40px;
+                font-weight: bold;
+                transition: 0.3s;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: #bbb;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            /* 100% Image Width on Smaller Screens */
+            @media only screen and (max-width: 700px){
+                .modal-content {
+                    width: 100%;
+                }
+            }
+        </style>
     </head>
     <body>
         <?php
         include "phpFiles/nav.inc.php"
         ;
         ?>
-        <header id="Content">
-            <div class="jumbotron jumbotron-fluid text-center bg-cover" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.15),rgba(255,255,255,0.7)), url(images/sliced.png)">
-                <h1 class="display-4">Tarts N' Cakes</h1>
-                <hr class="lead">
-                <p>Best Thing Since Sliced Bread!</p>
+        <div class="jumbotron jumbotron-fluid text-center bg-light">
+            <div class="container">
+                <h1>Tarts N' Cakes</h1>
+                <p>Best thing since Sliced Bread</p>
+                <?php
+                if (!isset($_SESSION['whoami'])) {
+                    echo '
+                            <a class="btn btn-primary" href="register.php" role="button">Shop Here</a>
+                            ';
+                } else {
+                    echo ' <a class="btn btn-primary" href="#" role="button">Shop Here</a>';
+                }
+                ?>
             </div>
-        </header>
+        </div>
         <?php
-        $success = true;
         $config = parse_ini_file('../../private/db1-config.ini');
         $conn = new mysqli($config['servername'], $config['username'],
                 $config['password'], $config['dbname']);
@@ -78,10 +173,8 @@
                                         $actives = 'active';
                                     }
                                     ?>
-                                    <!--                                    <div class = "carousel-item $actives; ">-->
-                                    <div class = "carousel-item<?= $actives; ?>" style = "background-image: url(data:image/jpeg;base64,<?= base64_encode($rowt['Img']); ?>);
-                                    height:100px; width:300px; background-size:cover;background-repeat: no-repeat;background-position: center;margin: auto;">
-                                        <img src="data:image/jpeg;base64,<?= base64_encode($rowt['Img']); ?>" style="visibility: hidden;">
+                                    <div class = "carousel-item <?= $actives; ?>">
+                                        <img class="img-thumbnail" src="data:image/jpeg;base64,<?= '' . base64_encode($rowt['Img']) . '' ?> "style="width:100%;max-width:300px"/>
                                     </div>
                                     <?php
                                     $i++;
@@ -131,9 +224,7 @@
                                     }
                                     ?>
                                     <div class = "carousel-item <?= $actives; ?>">
-                                        <?php
-                                        echo '<img class="img-thumbnail" src="data:image/jpeg;base64,' . base64_encode($rowc['Img']) . '  "/>';
-                                        ?>
+                                        <img class="img-thumbnail" src="data:image/jpeg;base64,<?= '' . base64_encode($rowc['Img']) . '' ?> "style="width:100%;max-width:300px"/>
                                     </div>
                                     <?php
                                     $i++;
@@ -152,14 +243,53 @@
                     </div>
                 </div>
             </section>
+            <div id="myModal" class="modal">
 
+                <!-- The Close Button -->
+<!--                <span class="close"><b>&times;</b></span>-->
+
+                <!-- Modal Content (The Image) -->
+                <img class="modal-content" id="img01">
+
+                <!-- Modal Caption (Image Text) -->
+                <div id="caption"></div>
+            </div>
         </main>
-
         <?php $conn->close(); ?>
 
         <?php
         include "footer.inc.php"; //add/include the content from footer.inc.php
         ?>
+        <script>
+            var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+            var images = document.getElementsByClassName("img-thumbnail");
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            for (var i = 0; i < images.length; i++) {
+                var img = images[i];
+                img.onclick = function () {
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    captionText.innerHTML = this.alt;
+                }
+            }
+//
+//// Get the <span> element that closes the modal
+//            var span = document.getElementsByClassName("close")[0];
+//
+//// When the user clicks on <span> (x), close the modal
+//            span.onclick = function () {
+//                modal.style.display = "none";
+//            }
+
+            window.onclick = function (event) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
     </body>
 </html>
 
