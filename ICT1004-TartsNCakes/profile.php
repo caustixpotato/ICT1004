@@ -12,6 +12,10 @@
     
     <?php       
            session_start();
+           if (!isset($_SESSION['whoami']))
+           {
+              header("Location:Login.php");
+           }
 
            //open connection and select database
            $config = parse_ini_file('../../private/db1-config.ini');

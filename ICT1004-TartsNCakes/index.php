@@ -32,7 +32,7 @@
                     ?>
                 </div>
             </div>
-
+            <button onclick="window.location.href='temp_store.php'">Tempory store</button>
             <!--            Intro Cards-->
             <section id="services" class="container">
                 <div class="row text-center">
