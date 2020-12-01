@@ -169,13 +169,13 @@
 <!--                <span class="close">X</span>-->
                 <!-- Modal Content (The Image) -->
                 <img class="modal-content" id="img01">
-                <!-- Modal Caption (Image Text) -->
+                <!-- Modal Caption (Name Text) -->
                 <div id="name-content"></div>
-                <!-- Modal Caption (Image Text) -->
+                <!-- Modal Caption (Desc Text) -->
                 <div id="desc-content"></div>
-                
+                 <!-- Modal Caption (Price Text) -->
                 <div id="price-content"></div>
-                <button id="checkoutBtn" class="button center">Go to Checkout</button>
+                <button id="checkoutBtn" class="button center">Go to Checkout</button>  
             </div>
         </main>
         <?php $conn->close(); ?>

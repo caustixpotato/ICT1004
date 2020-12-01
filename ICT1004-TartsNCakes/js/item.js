@@ -88,3 +88,10 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 }
+
+//var checkout = getElementById("checkoutBtn");
+//
+//checkout.onclick = function(){
+//    var nameText1 = document.getElementById("name-content").textContent;
+//    
+//}
