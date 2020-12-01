@@ -24,7 +24,7 @@
         </script>
 
         <!-- Internal JS -->
-        <script src="js/item.js"></script>
+        <script defer src="js/item.js"></script>
         
     </head>
     <body>
@@ -65,6 +65,7 @@
                             <ul class="carousel-indicators">
                                 <?php
                                 $i = 0;
+                                $id = 1;
                                 foreach ($resulttart as $rowt) {
                                     $actives = '';
                                     if ($i == 0) {
@@ -87,10 +88,13 @@
                                     }
                                     ?>
                                     <div class = "carousel-item <?= $actives; ?>">
-                                        <img class="img-thumbnail" src="data:image/jpeg;base64,<?= '' . base64_encode($rowt['Img']) . '' ?> "style="width:100%;max-width:300px"/>
+                                        <img id ="<?=$id?>" class="img-thumbnail" src="data:image/jpeg;base64,<?= '' . base64_encode($rowt['Img']) . '' ?>" alt = "<?=$rowt['Name']?>"/>
+                                        <div id ="idDesc<?=$id?>" id="desc" style = "display:none"><?=$rowt['Description']?></div>
+                                        <div id ="idPrice<?=$id?>" id="price" style = "display:none"><?=$rowt['Pricing']?></div>
                                     </div>
                                     <?php
                                     $i++;
+                                    $id++;
                                 }
                                 ?>
                             </div>
@@ -107,7 +111,7 @@
                 </div>
             </section>
 
-            <section id="Tarts" class = "container">
+            <section id="Cakes" class = "container">
                 <h2>Cakes</h2>
                 <div class = "row text-center">
                     <div class="col-sm">
@@ -137,10 +141,13 @@
                                     }
                                     ?>
                                     <div class = "carousel-item <?= $actives; ?>">
-                                        <img class="img-thumbnail" src="data:image/jpeg;base64,<?= '' . base64_encode($rowc['Img']) . '' ?> "style="width:100%;max-width:300px"/>
+                                        <img id ="<?=$id?>" class="img-thumbnail" src="data:image/jpeg;base64,<?= '' . base64_encode($rowc['Img']) . '' ?> " alt = "<?=$rowc['Name']?>" />
+                                        <div id ="idDesc<?=$id?>" id="desc" style = "display:none"><?=$rowc['Description']?></div>
+                                        <div id ="idPrice<?=$id?>" id="price" style = "display:none"><?=$rowc['Pricing']?></div>
                                     </div>
                                     <?php
                                     $i++;
+                                    $id++;
                                 }
                                 ?>
                             </div>
@@ -159,28 +166,24 @@
             <div id="myModal" class="modal">
 
                 <!-- The Close Button -->
-<!--                <span class="close"><b>&times;</b></span>-->
-
+<!--                <span class="close">X</span>-->
                 <!-- Modal Content (The Image) -->
                 <img class="modal-content" id="img01">
-
                 <!-- Modal Caption (Image Text) -->
-                <div id="caption"></div>
+                <div id="name-content"></div>
+                <!-- Modal Caption (Image Text) -->
+                <div id="desc-content"></div>
+                
+                <div id="price-content"></div>
+                <button id="checkoutBtn" class="button center">Go to Checkout</button>
             </div>
         </main>
         <?php $conn->close(); ?>
 
         <?php
-        include "footer.inc.php"; //add/include the content from footer.inc.php
+        include "phpFiles/footer.inc.php"; //add/include the content from footer.inc.php
         ?>
     </body>
 </html>
 
-
-
-/* 
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
-*/
 
