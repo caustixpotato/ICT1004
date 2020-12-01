@@ -14,28 +14,24 @@
     <body>
         <?php
         include "phpFiles/nav.inc.php";
-        ?> 
+        $config = parse_ini_file('../../private/db1-config.ini');
+        $conn = new mysqli($config['servername'], $config['username'],
+                $config['password'], $config['dbname']);
+        $sqltart = "SELECT * FROM Items WHERE Category ='Tart'";
+        $resulttart = mysqli_query($conn, $sqltart);
+        $sqlcake = "SELECT * FROM Items WHERE Category ='Cake'";
+        $resultcake = mysqli_query($conn, $sqlcake);
+        ?>
         <main>
 
             <div class="jumbotron jumbotron-fluid text-center bg-light">
                 <div class="container">
                     <h1>Tarts N' Cakes</h1>
                     <p>Best thing since Sliced Bread</p>
-                    <?php
-                    if (!isset($_SESSION['whoami'])) {
-                        echo '
-                            <a class="btn btn-primary" href="register.php" role="button">Shop Here</a>
-                            ';
-                    } else {
-                        echo ' <a class="btn btn-primary" href="#" role="button">Shop Here</a>';
-                    }
-                    ?>
                 </div>
             </div>
-
             <!--            Intro Cards-->
             <section id="services" class="container">
-                <button onclick="window.location.href='temp_store.php';"> TEMPORARY STORE TO BE REMOVED </button>
                 <div class="row text-center">
                     <div class="col-md-6 mb-6">
                         <div class="card h-75">
@@ -71,6 +67,8 @@
                 </div>
             </section>
         </main>
-<?php include "phpFiles/footer.inc.php"; ?> 
+        <?php $conn->close(); ?>
+
+        <?php include "phpFiles/footer.inc.php"; ?> 
     </body>
 </html>
