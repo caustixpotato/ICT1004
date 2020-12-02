@@ -64,10 +64,9 @@
                 echo "Failed to connect to MySQL: " . $mysqli->connect_error;
                 exit();
             }
-            echo "connection_status";
             $getOrderHistory = "SELECT O.Date, I.Name, I.Pricing FROM order_history O, Items I WHERE O.userID = '$userid' AND I.ItemID = O.itemID;";
             $history = mysqli_query($conn, $getOrderHistory);
-            if ($history->num_rows > 0) {
+            if ($history->num_rows > 1) {
                 // output data of each row
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr><td>" . $row["Date"] . "</td><td>" . $row["Name"] . "</td><td>"
@@ -75,8 +74,8 @@
                 }
                 echo "</table>";
             } else {
-                echo "No results";
                 echo "</table>";
+                echo "No results";
             }
             $conn->close();
             ?>

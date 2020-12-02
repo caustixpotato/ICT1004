@@ -27,12 +27,12 @@
                             <a class="btn btn-primary" href="register.php" role="button">Shop Here</a>
                             ';
                     } else {
-                        echo ' <a class="btn btn-primary" href="#" role="button">Shop Here</a>';
+                        echo ' <a class="btn btn-primary" href="Store.php" role="button">Shop Here</a>';
                     }
                     ?>
                 </div>
             </div>
-            <button onclick="window.location.href='temp_store.php'">Tempory store</button>
+            <button onclick="window.location.href = 'temp_store.php'">Tempory store</button>
             <!--            Intro Cards-->
             <section id="services" class="container">
                 <div class="row text-center">
@@ -47,7 +47,13 @@
                                 </p>
                             </div>
                             <div class="card-footer py-4">
-                                <a href="Store.php#Tarts" class="btn btn-secondary">Tarts</a>
+                                <?php
+                                if (!isset($_SESSION['whoami'])) {
+                                    echo '<a class="btn btn-primary" href="register.php" role="button">Shop Here</a>';
+                                } else {
+                                    echo ' <a href="Store.php#Tarts" class="btn btn-secondary">Tarts</a>';
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -70,6 +76,6 @@
                 </div>
             </section>
         </main>
-<?php include "phpFiles/footer.inc.php"; ?> 
+        <?php include "phpFiles/footer.inc.php"; ?> 
     </body>
 </html>
