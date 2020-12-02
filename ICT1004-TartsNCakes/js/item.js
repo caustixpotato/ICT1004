@@ -54,7 +54,7 @@
 //}
 
 var modal = document.getElementById("myModal");
-var checkout = getElementById("checkoutBtn");
+var checkout = document.getElementById("checkoutBtn");
 // Get the image and insert it inside the modal - use its "alt" text as a caption
 var images = document.getElementsByClassName("img-thumbnail");
 var modalImg = document.getElementById("img01");
