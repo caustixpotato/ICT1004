@@ -61,6 +61,7 @@ var modalImg = document.getElementById("img01");
 var nameText = document.getElementById("name-content");
 var descModal = document.getElementById("desc-content");
 var priceModal = document.getElementById("price-content");
+var itemID = document.getElementById("itemID");
 //  Loop through all the images from carousel until someone clicks on an img
 for (var i = 0; i < images.length; i++) {
     var img = images[i];
@@ -70,9 +71,11 @@ for (var i = 0; i < images.length; i++) {
         var price = document.getElementById("idPrice" + j + "").textContent;
         modal.style.display = "block";
         modalImg.src = this.src;
+        modalImg.id = j;
         nameText.innerHTML = this.alt;
         descModal.innerHTML = desc;
         priceModal.innerHTML = "$" + price + "";
+        itemID.value = j;
     };
 }
 
