@@ -1,6 +1,7 @@
 /*Navbar CSS for use in JS Opacity Change*/
 .navbar{
     background:transparent;
+    z-index: 1 ;
 }
 /*Jumbotron Controls*/
 .jumbotron
