@@ -54,13 +54,14 @@
 //}
 
 var modal = document.getElementById("myModal");
-
+var checkout = getElementById("checkoutBtn");
 // Get the image and insert it inside the modal - use its "alt" text as a caption
 var images = document.getElementsByClassName("img-thumbnail");
 var modalImg = document.getElementById("img01");
 var nameText = document.getElementById("name-content");
 var descModal = document.getElementById("desc-content");
 var priceModal = document.getElementById("price-content");
+//  Loop through all the images from carousel until someone clicks on an img
 for (var i = 0; i < images.length; i++) {
     var img = images[i];
     img.onclick = function () {
@@ -87,4 +88,9 @@ window.onclick = function (event) {
     if (event.target === modal) {
         modal.style.display = "none";
     }
+}
+
+checkout.onclick = function(){
+    alert("Added To Cart");
+    
 }
