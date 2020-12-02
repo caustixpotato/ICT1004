@@ -94,9 +94,31 @@ body nav div
 
     
  /*OrderHistory Table*/
- th{
-   background-color: #e2bb8e;
-   text-align: center;
-   padding: 8px;
-   border: solid
- }
+#orderhistory {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#orderhistory td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#orderhistory th{
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 8px;  
+}
+
+#orderhistory tr:nth-child(even){background-color: #f2f2f2;}
+
+#orderhistory tr:hover {background-color: #ddd;}
+
+#orderhistory th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #E4A485;
+  color: white;
+}
