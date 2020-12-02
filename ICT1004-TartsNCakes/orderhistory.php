@@ -39,7 +39,7 @@
                             echo "<td>" . $row["Date"] . "</td>";
                             echo "<td>" . $row["Name"] . "</td>";
                             echo "<td>" . $row["Quantity"] . "</td>";
-                            echo "<td>" . $row["Pricing"] . "</td>";
+                            echo "<td>" . $row["Pricing"] * $row["Quantity"] . "</td>";
                             echo "</tr>";
                         }
                         echo "</table>";

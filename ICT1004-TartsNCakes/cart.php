@@ -80,9 +80,9 @@
                         echo "</tr>";
                         echo "</table>";
                     } else {
-                        //alert("0 results");
-                        echo "0 results";
+                        
                         echo "</table>";
+                        echo "No items in cart!";
                     }
                     $conn->close();
                     ?>
