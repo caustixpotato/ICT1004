@@ -174,8 +174,9 @@
                 <div id="price-content"></div>
                 <form action="POST" id ="form1">
                     <input type="hidden" id="itemID" name="itemID" value="">
+                    <button type="submit" id="checkoutBtn" form="form1" class="button center">Add to Cart</button>
                 </form>
-                <button id="checkoutBtn" form="form1" class="button center">Add to Cart</button> 
+<!--                <button type="submit" id="checkoutBtn" form="form1" class="button center">Add to Cart</button> -->
             </div>
         </main>
         <?php $conn->close(); ?>
