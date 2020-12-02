@@ -70,7 +70,7 @@
             </form>
             </div>
             <div class="col-4">
-                <table id="orderhistory">
+                <table id="orderhistory" style="overflow-x:auto;">
                     <tr>
                         <th>Item no.</th>
                         <th>Item Description</th>

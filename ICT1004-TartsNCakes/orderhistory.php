@@ -12,7 +12,7 @@
         ?>
         <div class="row">
             <div class="col-2"></div>
-            <div class="col-8">
+            <div class="col-8" style="overflow-x:auto;">
                 <table id="orderhistory">
                     <tr>
                         <th>Date</th>
