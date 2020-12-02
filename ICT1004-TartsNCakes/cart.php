@@ -34,6 +34,7 @@
                         <th>Item Description</th>
                         <th>Quantity</th>
                         <th>Price</th>
+                        <th>Edit order</th>
                     </tr>
                     <?php
                     // Get the cartinformation from the db
@@ -51,10 +52,19 @@
                             echo "<td>" . $rowcounter . "</td>";
                             echo "<td>" . $row["Name"] . "</td>";
                             echo "<td>" . $row["itemQuantity"] . "</td>";
-                            echo "<td>" . $row["Pricing"] . "</td>";
+                            echo "<td>" . $row["Pricing"]* $row["itemQuantity"] . "</td>";
+                           
+                            echo "<td>";
+                            echo "<form  id=\"form2\" action=\"Deleteitem.php\" method=\"post\">";
+                            echo "<input type=\"submit\" name=\"submit\" value=\"Delete\">" ;
+                            echo "<input type=\"hidden\" name=\"cid\" value=\"".$row['itemID']."\">";
+                            echo "</form>";     
+                            echo "</td>";
                             echo "</tr>";
-                            $totalCost = $totalCost + $row["Pricing"];
+                            $totalCost = $totalCost + ($row["Pricing"]* $row["itemQuantity"]);
                             $rowcounter++;
+                            
+                            
                         }
                         echo "<tr>";
                         echo "<td></td>";
