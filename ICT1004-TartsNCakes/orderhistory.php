@@ -16,7 +16,8 @@
                 <table id="orderhistory">
                     <tr>
                         <th>Date</th>
-                        <th>Item Name.</th>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
                         <th>Pricing</th>
                     </tr>
                     <?php
@@ -29,7 +30,7 @@
                         echo "Failed to connect to MySQL: " . $mysqli->connect_error;
                         exit();
                     }
-                    $getOrderHistory = "SELECT O.Date, I.Name, I.Pricing FROM order_history O, Items I WHERE O.userID = '$userid' AND I.ItemID = O.itemID;";
+                    $getOrderHistory = "SELECT O.Date, I.Name, O.Quantity, I.Pricing FROM order_history O, Items I WHERE O.userID = '$userid' AND I.ItemID = O.itemID;";
                     $history = mysqli_query($conn, $getOrderHistory);
                     if ($history->num_rows > 0) {
                         // output data of each row
@@ -37,6 +38,7 @@
                             echo "<tr>";
                             echo "<td>" . $row["Date"] . "</td>";
                             echo "<td>" . $row["Name"] . "</td>";
+                            echo "<td>" . $row["Quantity"] . "</td>";
                             echo "<td>" . $row["Pricing"] . "</td>";
                             echo "</tr>";
                         }
