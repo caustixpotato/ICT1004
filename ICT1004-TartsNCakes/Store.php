@@ -172,7 +172,8 @@
                 <div id="desc-content"></div>
                  <!-- Modal Caption (Price Text) -->
                 <div id="price-content"></div>
-                <button id="checkoutBtn" class="button center">Go to Checkout</button>  
+                
+                <button id="checkoutBtn" class="button center">Add to Cart</button>  
             </div>
         </main>
         <?php $conn->close(); ?>
