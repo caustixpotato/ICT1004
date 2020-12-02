@@ -35,7 +35,7 @@
                             <div class="card-footer py-4">
                                 <?php
                                 if (!isset($_SESSION['whoami'])) {
-                                    echo '<a class="btn btn-primary" href="register.php" role="button">Shop Here</a>';
+                                    echo '<a class="btn btn-secondary" href="register.php">Tarts</a>';
                                 } else {
                                     echo ' <a href="Store.php#Tarts" class="btn btn-secondary">Tarts</a>';
                                 }
@@ -55,7 +55,13 @@
                                 </p>
                             </div>
                             <div class="card-footer py-4">
-                                <a href="Store.php#Cakes" class="btn btn-secondary">Cakes</a>
+                                <?php
+                                if (!isset($_SESSION['whoami'])) {
+                                    echo '<a class="btn btn-secondary" href="register.php">Cakes</a>';
+                                } else {
+                                    echo '<a href="Store.php#Cakes" class="btn btn-secondary">Cakes</a>';
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
