@@ -65,7 +65,6 @@
                             <ul class="carousel-indicators">
                                 <?php
                                 $i = 0;
-                                $id = 1;
                                 foreach ($resulttart as $rowt) {
                                     $actives = '';
                                     if ($i == 0) {
@@ -88,13 +87,12 @@
                                     }
                                     ?>
                                     <div class = "carousel-item <?= $actives; ?>">
-                                        <img id ="<?=$id?>" class="img-thumbnail" src="data:image/jpeg;base64,<?= '' . base64_encode($rowt['Img']) . '' ?>" alt = "<?=$rowt['Name']?>"/>
-                                        <div id ="idDesc<?=$id?>" id="desc" style = "display:none"><?=$rowt['Description']?></div>
-                                        <div id ="idPrice<?=$id?>" id="price" style = "display:none"><?=$rowt['Pricing']?></div>
+                                        <img id ="<?=$rowt['ItemID']?>" class="img-thumbnail" src="data:image/jpeg;base64,<?= '' . base64_encode($rowt['Img']) . '' ?>" alt = "<?=$rowt['Name']?>"/>
+                                        <div id ="idDesc<?=$rowt['ItemID']?>" id="desc" style = "display:none"><?=$rowt['Description']?></div>
+                                        <div id ="idPrice<?=$rowt['ItemID']?>" id="price" style = "display:none"><?=$rowt['Pricing']?></div>
                                     </div>
                                     <?php
                                     $i++;
-                                    $id++;
                                 }
                                 ?>
                             </div>
@@ -141,13 +139,12 @@
                                     }
                                     ?>
                                     <div class = "carousel-item <?= $actives; ?>">
-                                        <img id ="<?=$id?>" class="img-thumbnail" src="data:image/jpeg;base64,<?= '' . base64_encode($rowc['Img']) . '' ?> " alt = "<?=$rowc['Name']?>" />
-                                        <div id ="idDesc<?=$id?>" id="desc" style = "display:none"><?=$rowc['Description']?></div>
-                                        <div id ="idPrice<?=$id?>" id="price" style = "display:none"><?=$rowc['Pricing']?></div>
+                                        <img id ="<?=$rowc['ItemID']?>" class="img-thumbnail" src="data:image/jpeg;base64,<?= '' . base64_encode($rowc['Img']) . '' ?> " alt = "<?=$rowc['Name']?>" />
+                                        <div id ="idDesc<?=$rowc['ItemID']?>" id="desc" style = "display:none"><?=$rowc['Description']?></div>
+                                        <div id ="idPrice<?=$rowc['ItemID']?>" id="price" style = "display:none"><?=$rowc['Pricing']?></div>
                                     </div>
                                     <?php
                                     $i++;
-                                    $id++;
                                 }
                                 ?>
                             </div>
