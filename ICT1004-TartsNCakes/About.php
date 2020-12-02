@@ -70,7 +70,7 @@
                    食品業界の要件を満たすためにレシピを強化します。
                 </p>
     
-                <h3><a href="Login.php" title="promo">Login to view our promotion now!</a></h3>
+                <h3><a href="store_locations.php" title="store">view our store now!</a></h3>
             
            
         </article>
