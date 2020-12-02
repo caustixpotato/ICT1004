@@ -54,7 +54,7 @@
 //}
 
 var modal = document.getElementById("myModal");
-var checkout = getElementById("checkoutBtn");
+var checkout = document.getElementById("checkoutBtn");
 // Get the image and insert it inside the modal - use its "alt" text as a caption
 var images = document.getElementsByClassName("img-thumbnail");
 var modalImg = document.getElementById("img01");
@@ -73,7 +73,7 @@ for (var i = 0; i < images.length; i++) {
         nameText.innerHTML = this.alt;
         descModal.innerHTML = desc;
         priceModal.innerHTML = "$" + price + "";
-    }
+    };
 }
 
 // Get the <span> element that closes the modal
@@ -88,9 +88,9 @@ window.onclick = function (event) {
     if (event.target === modal) {
         modal.style.display = "none";
     }
-}
+};
 
 checkout.onclick = function(){
     alert("Added To Cart");
     
-}
+};
