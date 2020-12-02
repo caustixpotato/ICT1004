@@ -47,36 +47,51 @@
                 ?>
             </div>
         </div>
+        <!-- Start Connection -->
         <?php
         $config = parse_ini_file('../../private/db1-config.ini');
         $conn = new mysqli($config['servername'], $config['username'],
                 $config['password'], $config['dbname']);
+        //Query for rows that are Tarts
         $sqltart = "SELECT * FROM Items WHERE Category ='Tart'";
+        //Execute Query and save the results on a variable
         $resulttart = mysqli_query($conn, $sqltart);
+        //Query for rows that are Cakes
         $sqlcake = "SELECT * FROM Items WHERE Category ='Cake'";
+        //Execute Query and save the results on a variable
         $resultcake = mysqli_query($conn, $sqlcake);
         ?>
         <main>
+            <!-- Create Section called Tarts -->
             <section id="Tarts" class = "container">
                 <h2>Tarts</h2>
+                <!-- Create div with rows with the text centered -->
                 <div class = "row text-center">
+                    <!-- Create grid with width 750px -->
                     <div class="col-sm">
+                        <!-- Create carousel with slides and tells Bootstrap to begin animating the carousel immediately when the page loads. -->
                         <div id = "carouselt" class = "carousel slide" data-ride = "carousel">
+                            <!-- Unordered list for carousel indicators-->
                             <ul class="carousel-indicators">
                                 <?php
+                                //create int variable to act as a count for each iteration of loop
                                 $i = 0;
+                                //execute when there are rows after executing the query
                                 foreach ($resulttart as $rowt) {
+                                    //create a variable to store the active item value for carousel
                                     $actives = '';
                                     if ($i == 0) {
                                         $actives = 'active';
                                     }
                                     ?>
+                                    <!-- Create slide list item for carousel indicators for every row -->
                                     <li data-target="#carouselt" data-slide-to="<?= $i; ?>" class ="<?= $actives; ?>"></li>
                                     <?php
                                     $i++;
                                 }
                                 ?>
                             </ul>
+                            <!-- Create div to contain all the carousel slides -->
                             <div class = "carousel-inner">
                                 <?php
                                 $i = 0;
@@ -96,6 +111,7 @@
                                 }
                                 ?>
                             </div>
+                            <!-- Create a tag to contain all the carousel controls -->
                             <a class="carousel-control-prev" href="#carouselt" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
