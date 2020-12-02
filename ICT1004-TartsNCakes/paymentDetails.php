@@ -4,13 +4,13 @@
         <?php
         include "phpFiles/headcontents.inc.php";
         ?> 
-        <title>Table with database</title>
+        <title>Payment Details</title>
     </head>
     <body>
         <?php
         include "phpFiles/nav.inc.php";
         include "phpFiles/banner.php";
-
+        
         // Open session connection
         session_start();
         $userid = $_SESSION['userid'];
@@ -23,11 +23,10 @@
             exit();
         }
         ?> 
-
-        <div class="row">
-            <div class="col-2"></div>
-            <div class="col-8">
-                <h1><?php echo $lastName ?>'s Shopping Cart</h1>
+        
+        <div class="row">           
+            <div class="col-6">
+                <h1><?php echo $lastName?>'s Shopping Cart</h1>
                 <table id="orderhistory">
                     <tr>
                         <th>Item no.</th>
@@ -36,6 +35,8 @@
                         <th>Price</th>
                     </tr>
                     <?php
+ 
+
                     // Get the cartinformation from the db
                     $getCurrentCart = "SELECT shopping_cart.itemID, shopping_cart.itemQuantity, Items.Name, Items.Pricing FROM shopping_cart, Items WHERE shopping_cart.userID = '$userid' AND shopping_cart.itemID = Items.ItemID;";
                     $currentCart = mysqli_query($conn, $getCurrentCart);
@@ -57,16 +58,16 @@
                             $rowcounter++;
                         }
                         echo "<tr>";
-                        echo "<td></td>";
-                        echo "<td></td>";
-                        echo "<td></td>";
-                        echo "<td>Total Cost</td>";
+                            echo "<td></td>";
+                            echo "<td></td>";
+                            echo "<td></td>";
+                            echo "<td>Total Cost</td>";
                         echo "</tr>";
                         echo "<tr>";
-                        echo "<td></td>";
-                        echo "<td></td>";
-                        echo "<td></td>";
-                        echo "<td>" . $totalCost . "</td>";
+                            echo "<td></td>";
+                            echo "<td></td>";
+                            echo "<td></td>";
+                            echo "<td>" . $totalCost . "</td>";
                         echo "</tr>";
                         echo "</table>";
                     } else {
@@ -75,16 +76,7 @@
                         echo "</table>";
                     }
                     $conn->close();
-                    ?>
-            </div>
-            <div class="col-2"></div>
-        </div>
-        <div class="row">
-            <div class="col-9"></div>
-            <div class="col-3" style="padding: 1em">
-                <form method="POST" id ="form1" action="paymentDetails.php">                   
-                    <button type="submit" form="form1" class="center btn btn-secondary">Go to payment</button>
-                </form>
+                    ?></table>
             </div>
         </div>
         <?php include "phpFiles/footer.inc.php"; ?> 
