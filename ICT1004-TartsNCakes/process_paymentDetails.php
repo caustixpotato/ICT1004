@@ -20,7 +20,7 @@ if ($RetrieveCartTable->num_rows > 0) {
     while ($currentRow = $RetrieveCartTable->fetch_assoc()) {
         
         // Prepare statement
-        $orderHistorySQL = "INSERT INTO order_history (itemID, userID, Date, Quantity) VALUES (" . $currentRow['itemID'] . ",  " . $u_id . ",  " . "CURDATE(), " . $currentRow['itemQuantity'] . ");";
+        $orderHistorySQL = "INSERT INTO order_history (itemID, userID, Date, Quantity) VALUES (" . $currentRow['itemID'] . ",  " . $u_id . ",  " . "CURDATE() + 1, " . $currentRow['itemQuantity'] . ");";
           
         mysqli_query($conn, $orderHistorySQL);
     }
