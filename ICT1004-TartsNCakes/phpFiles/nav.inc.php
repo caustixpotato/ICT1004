@@ -69,7 +69,7 @@
 
 
                 echo ' <li class="nav-item">
-                <a class="nav-link" title="Cart" href="Cart.php">
+                <a class="nav-link" title="Cart" href="cart.php">
                       <img src="images/cart.png" width="30" height="40" class="d-inline-block align-center" alt="Cart" loading="lazy"/>Cart
                   </a>                 
                   </li>';
