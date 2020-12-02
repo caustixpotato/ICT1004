@@ -73,7 +73,7 @@ for (var i = 0; i < images.length; i++) {
         nameText.innerHTML = this.alt;
         descModal.innerHTML = desc;
         priceModal.innerHTML = "$" + price + "";
-    }
+    };
 }
 
 // Get the <span> element that closes the modal
@@ -88,9 +88,9 @@ window.onclick = function (event) {
     if (event.target === modal) {
         modal.style.display = "none";
     }
-}
+};
 
 checkout.onclick = function(){
     alert("Added To Cart");
     
-}
+};
