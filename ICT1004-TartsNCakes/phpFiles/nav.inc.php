@@ -1,16 +1,3 @@
-<!--
-Navbar Goals:
-Sticky Navbar
-Needs Brand
-Primary Buttons:
-    - About Us
-    - Shopping Cart
-    - Account (Drop Down)
--->
-
-
-
-
 <nav id ="navbar" class="navbar navbar-expand-lg navbar-light fixed-top">
     <a class="navbar-brand" href="index.php">
         <img src="images/logo.png" width="200" height="100" class="d-inline-block align-center" alt="Tarts N Cakes Logo" loading="lazy"/>

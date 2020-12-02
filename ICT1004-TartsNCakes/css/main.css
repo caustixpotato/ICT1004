@@ -47,10 +47,9 @@ footer
     .jumbotron .container
     {
         background: RGBA(255, 255, 255, 0.2);
-        font-size:30px;
+        font-size:15px;
     }
 }
-
 
 /*Resizing Images*/
 .RESIZER{
@@ -92,3 +91,12 @@ body nav div
     .dropdown-content a:hover {color: #FAFF00;}
 
     .dropdown:hover .dropdown-content {display: block;}
+
+    
+ /*OrderHistory Table*/
+ th{
+   background-color: #e2bb8e;
+   text-align: center;
+   padding: 8px;
+   border: solid
+ }

@@ -13,15 +13,9 @@
 
     <body>
         <?php 
-        include "phpFiles/nav.inc.php"
+        include "phpFiles/nav.inc.php";
+            include "phpFiles/banner.php";
         ;?> 
-        <header id="Content">
-            <div class="jumbotron jumbotron-fluid text-center bg-cover" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.15),rgba(255,255,255,0.7)), url(images/sliced.png)">
-                <h1 class="display-4">Tarts N' Cakes</h1>
-                <hr class="lead">
-                <p>Best Thing Since Sliced Bread!</p>
-            </div>
-        </header>
         <main class="container">
             
             
