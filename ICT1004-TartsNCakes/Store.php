@@ -92,7 +92,7 @@
                         <h2>Tarts</h2>
                         <!-- Create div with rows with the text centered -->
                         <div class = "row text-center">
-                            <!-- Create grid with width 750px -->
+                            <!-- Create grid with width 540px -->
                             <div class="col-sm">
                                 <!-- Create carousel with slides and tells Bootstrap to begin animating the carousel immediately when the page loads. -->
                                 <div id = "carouselt" class = "carousel slide" data-ride = "carousel">
@@ -100,30 +100,29 @@
                                     <ul class="carousel-indicators">
                                         <?php
                                         //create int variable to act as a count for each iteration of loop
-                                        $i = 0;
+                                        $j = 0;
                                         //execute when there are rows after executing the query
                                         foreach ($resulttart as $rowt) {
-
                                             //create a variable to store the active item value for carousel
                                             $actives = '';
-                                            if ($i == 0) {
+                                            if ($j == 0) {
                                                 $actives = 'active';
                                             }
                                             ?>
                                             <!-- Create slide list item for carousel indicators for every row -->
                                             <li data-target="#carouselt" data-slide-to="<?= $i; ?>" class ="<?= $actives; ?>"></li>
                                             <?php
-                                            $i++;
+                                            $j++;
                                         }
                                         ?>
                                     </ul>
                                     <!-- Create div to contain all the carousel slides -->
                                     <div class = "carousel-inner">
                                         <?php
-                                        $i = 0;
+                                        $j = 0;
                                         foreach ($resulttart as $rowt) {
                                             $actives = '';
-                                            if ($i == 0) {
+                                            if ($j == 0) {
                                                 $actives = 'active';
                                             }
                                             ?>
@@ -133,7 +132,7 @@
                                                 <div id ="idPrice<?= $rowt['ItemID'] ?>" id="price" style = "display:none"><?= $rowt['Pricing'] ?></div>
                                             </div>
                                             <?php
-                                            $i++;
+                                            $j++;
                                         }
                                         ?>
                                     </div>
