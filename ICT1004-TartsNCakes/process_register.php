@@ -13,7 +13,7 @@ function sanitize_input($data)
     $data = trim($data);               //remove whitespaces 
     $data = stripslashes($data);       //such as '
     $data = htmlspecialchars($data);   //such as >,<&
-     return $data;
+    return $data;
   }
 
 

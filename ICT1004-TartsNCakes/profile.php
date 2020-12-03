@@ -80,9 +80,20 @@ include "phpFiles/nav.inc.php"
                             pattern="[0-9]{8}" title="Please enter phone number as 8-digit numbers only" value="<?php echo $userinfo['phoneno']; ?>">  
                 </div>               
                 <div class="form-gorup">
-                    <label for="newaddress">Address:</label> 
+                    <label for="newaddress">Street:</label> 
                     <input  class="form-control" type="text" id="newaddress"  required  name="newaddress" 
-                            value="<?php echo $userinfo['address']; ?>">  
+                            value="<?php echo $userinfo['street']; ?>">  
+                </div>
+                
+                <div class="form-gorup">
+                    <label for="newpo">Postal code:</label> 
+                    <input  class="form-control" type="text" id="newpo"  required  name="newpo"  name="postalcode" pattern="[0-9]{6}"  title="Please enter postal code number as 6-digit numbers only"
+                            value="<?php echo $userinfo['PostalCode']; ?>">  
+                </div>
+                 <div class="form-gorup">
+                    <label for="newunit">Unit:</label> 
+                    <input  class="form-control" type="text" id="newunit"  required  name="newunit" pattern="[0-9][0-9]-[0-9][0-9]" title="Please enter valid unit number eg.06-57" 
+                            value="<?php echo $userinfo['Unit']; ?>">  
                 </div>
 
                 <div class="form-check">
