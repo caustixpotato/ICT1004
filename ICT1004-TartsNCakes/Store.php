@@ -27,6 +27,7 @@
         <script defer src="js/item.js"></script>
 
     </head>
+
     <body>
         <?php
         include "phpFiles/nav.inc.php"
@@ -49,6 +50,15 @@
         </div>
         <!-- Start Connection -->
         <?php
+        session_start();
+        if (empty($_SESSION['userid'])) {?>
+            <script> alert("Please login or register before accessing the store page");
+            window.location.href='index.php';</script>
+            <?php
+            exit();
+        } else {
+            $u_id = $_SESSION['userid'];   //show login user id
+        }
         $errorMsg = "";
         $success = true;
         $config = parse_ini_file('../../private/db1-config.ini');
@@ -60,21 +70,21 @@
         } else {
             //Query for rows that are Tarts
             $stmtTart = $conn->prepare("SELECT * FROM Items WHERE Category ='Tart'");
-            $stmtTart ->execute();
+            $stmtTart->execute();
             //$sqltart = "SELECT * FROM Items WHERE Category ='Tart'";
             //Execute Query and save the results on a variable
             $resulttart = $stmtTart->get_result();
             //Query for rows that are Cakes
             //$sqlcake = "SELECT * FROM Items WHERE Category ='Cake'";
             $stmtCake = $conn->prepare("SELECT * FROM Items WHERE Category ='Cake'");
-            $stmtCake ->execute();
+            $stmtCake->execute();
             //Execute Query and save the results on a variable
             $resultcake = $stmtCake->get_result();
         }
         ?>
         <?php
         if ($success) {
-            if ($resulttart -> num_rows > 0) {
+            if ($resulttart->num_rows > 0) {
                 ?>
                 <main>
                     <!-- Create Section called Tarts -->
@@ -147,7 +157,7 @@
                     echo "<p style='position: realtive; padding: 1em 0;margin: 0;text-align:center;'>" . $errorMsg . "</p>";
                 }
 
-                if ($resultcake -> num_rows > 0) {
+                if ($resultcake->num_rows > 0) {
                     ?>
                     <section id="Cakes" class = "container">
                         <h2>Cakes</h2>
