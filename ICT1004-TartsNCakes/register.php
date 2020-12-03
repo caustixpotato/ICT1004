@@ -70,7 +70,7 @@
                    required maxlength="45" name="lname" placeholder="Enter last name">             
               </div>   
               <div class="form-gorup">
-                   <label for="email">Email:</label>            
+                   <label for="email">Gmail:</label>            
                    <input class="form-control" type="email" id="email" pattern="^[a-zA-Z0-9]+@gmail\.com$" required name="email"                   
                           placeholder="Enter email" title="Please enter a valid GMAIL addess">            
               </div>
