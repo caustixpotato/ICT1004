@@ -4,7 +4,7 @@
         <?php
         include "phpFiles/headcontents.inc.php";
         ?> 
-        <title>Table with database</title>
+        <title>Cart</title>
     </head>
     <body>
         <?php

@@ -10,23 +10,47 @@
         <?php
         include "phpFiles/nav.inc.php";
         include "phpFiles/banner.php";
-        
+
         // Open session connection
         session_start();
-        $userid = $_SESSION['userid'];
+
+        // Check if logged in
+        if (empty($_SESSION['userid'])) {
+            $errorMsg = "Not logged in";
+            header("Location:register");
+        } else {
+            $userid = $_SESSION['userid'];
+        }
         $lastName = $_SESSION['username'];
         $useremail = $_SESSION['whoami'];
+
+
         $config = parse_ini_file('../../private/db1-config.ini');
         $conn = new mysqli($config['servername'], $config['username'],
                 $config['password'], $config['dbname']);
+        
+        // Check connection
         if ($conn->connect_errno) {
             echo "Failed to connect to MySQL: " . $mysqli->connect_error;
             exit();
         }
         
-        $memberDetSQL = "SELECT * FROM cake_member where userID ='$userid'";
-        $selectduser = mysqli_query($conn, $memberDetSQL);
-        $userinfo = mysqli_fetch_assoc($selectduser);
+        // Prepare SQL statement
+        $memberDetSQL = $conn->prepare("SELECT * FROM cake_member where userID = ?;");
+
+        // Bind and execute the query statement
+        $memberDetSQL->bind_param("s", $userid);
+        $memberDetSQL->execute();
+        $selectduser = $memberDetSQL->get_result();
+
+        // Check if user had any cart information
+        if ($selectduser->num_rows > 0) {
+            $userinfo = $selectduser->fetch_assoc();
+        } else {
+            // Return them to index
+            $errorMsg = "Not a user.";
+            header("Location:index.php");
+        }
         ?> 
         
         <div class="container">       
@@ -54,13 +78,23 @@
                     <label for="newphoneno">Phone number:</label> 
                     <input  class="form-control" type="text" id="newphoneno"  required maxlength="11" name="newphoneno" 
                             pattern="[0-9]{8}" title="Please enter phone number as 8-digit numbers only" value="<?php echo $userinfo['phoneno']; ?>">  
-                </div>               
+                </div>        
+
+                <div class="form-gorup">
+                    <label for="blkno">Block:</label> 
+                    <input  class="form-control" type="text" id="blkno"  required  name="blkno">  
+                </div>
+
+                <div class="form-gorup">
+                    <label for="unitno">Unit:</label> 
+                    <input  class="form-control" type="text" id="unitno"  required  name="unitno">  
+                </div>
                 <div class="form-gorup">
                     <label for="newaddress">Address:</label> 
                     <input  class="form-control" type="text" id="newaddress"  required  name="newaddress" 
                             value="<?php echo $userinfo['street']; ?>">  
                 </div>
-       
+
                 <div class="form-gorup">                   
                     <label for="ccn">Credit Card Number:</label>
                     <input required class="form-control" id="ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx">
@@ -77,15 +111,20 @@
                         <th>Price</th>
                     </tr>
                     <?php
- 
-
+                    
                     // Get the cartinformation from the db
-                    $getCurrentCart = "SELECT shopping_cart.itemID, shopping_cart.itemQuantity, Items.Name, Items.Pricing FROM shopping_cart, Items WHERE shopping_cart.userID = '$userid' AND shopping_cart.itemID = Items.ItemID;";
-                    $currentCart = mysqli_query($conn, $getCurrentCart);
+                    // Prepare SQL statement
+                    $getCurrentCart = $conn->prepare("SELECT shopping_cart.itemID, shopping_cart.itemQuantity, Items.Name, Items.Pricing FROM shopping_cart, Items WHERE shopping_cart.userID = ? AND shopping_cart.itemID = Items.ItemID;");
 
+                    // Bind and execute the query statement
+                    $getCurrentCart->bind_param("s", $userid);
+                    $getCurrentCart->execute();
+                    $currentCart = $getCurrentCart->get_result();
 
+                    // Create cart table
                     if ($currentCart->num_rows > 0) {
-                        // output data of each row
+                        
+                        // Output data of each row
                         $totalCost = 0;
                         $rowcounter = 1;
                         while ($row = $currentCart->fetch_assoc()) {
