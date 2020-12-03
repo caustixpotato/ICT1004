@@ -10,9 +10,8 @@
         include "phpFiles/nav.inc.php";
         include "phpFiles/banner.php";
         ?>
-        <div class="row">
-            <div class="col-2"></div>
-            <div class="col-8" style="overflow-x:auto;">
+        <div class="container">
+            <div class="col-xl col-md-sm" style="overflow-x:auto;">
                 <table id="orderhistory">
                     <tr>
                         <th>Date</th>
@@ -50,7 +49,6 @@
                     $conn->close();
                     ?>
             </div>
-            <div class="col-2"></div>
         </div>
         <?php
         include "phpFiles/footer.inc.php";

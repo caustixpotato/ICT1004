@@ -24,10 +24,9 @@
         }
         ?> 
 
-        <div class="row">
-            <div class="col-2"></div>
-            <div class="col-8" style="overflow-x:auto;">
-                <h1><?php echo $lastName ?>'s Shopping Cart</h1>
+        <div class="container">
+            <div class="col-xl" style="overflow-x:auto;">
+                <h1 id="cartName"><?php echo $lastName ?>'s Shopping Cart</h1>
                 <table id="orderhistory">
                     <tr>
                         <th>Item no.</th>
@@ -87,7 +86,6 @@
                     $conn->close();
                     ?>
             </div>
-            <div class="col-2"></div>
         </div>
         <div class="row">
             <div class="col-9"></div>
@@ -96,7 +94,6 @@
                     <button type="submit" form="form1" class="center btn btn-secondary">Go to payment</button>
                 </form>
             </div>
-        </div>
         <?php include "phpFiles/footer.inc.php"; ?> 
     </body>
 </html>
