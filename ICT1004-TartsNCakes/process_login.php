@@ -127,7 +127,7 @@ function authenticateUser()
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Register result</title>  
+    <title>Login result</title>  
     <link rel="stylesheet" href="css/main.css" />
        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
               integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
@@ -135,14 +135,16 @@ function authenticateUser()
        
        <style>
            
-           #profileimg{
+           #profileimg
+           {
                width: 100px;
                height: 100px;
                clear: both;
                margin-bottom: 10px;
                
            }
-           #mask {
+           #mask 
+           {
               position: absolute;
              left: 0;
               top: 0;
@@ -151,26 +153,27 @@ function authenticateUser()
              display: none;
           }
              #boxes .window {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 440px;
-  height: 200px;
-  display: none;
-  z-index: 9999;
-  padding: 20px;
-  border-radius: 15px;
-  text-align: center;
-}
+              position: absolute;
+              left: 0;
+              top: 0;
+               width: 440px;
+               height: 200px;
+               display: none;
+               z-index: 9999;
+               padding: 20px;
+               border-radius: 15px;
+               text-align: center;
+              }
 
-#boxes #dialog {
-  width: 350px;
-  height: 400px;
-  padding: 10px;
-  background-color: #ffffff;
-  font-family: 'Segoe UI Light', sans-serif;
-  font-size: 15pt;
-}
+              #boxes #dialog 
+              {
+              width: 350px;
+             height: 400px;
+              padding: 10px;
+              background-color: #ffffff;
+              font-family: 'Segoe UI Light', sans-serif;
+              font-size: 15pt;
+               }
 
 
 

@@ -90,13 +90,33 @@
                            pattern="[0-9]{8}" title="Please enter phone number as 8-digit numbers only">  
               </div>               
               <div class="form-gorup">
-                   <label for="address">Address:</label> 
+                   <label for="address">Street:</label> 
                    <input  class="form-control" type="text" id="address"  required  name="address" 
                           placeholder="">  
               </div>
               <div class="form-gorup">
+                   <label for="postalcode">Postal Code:</label> 
+                   <input  class="form-control" type="text" id="postalcode"  required  name="postalcode" pattern="[0-9]{6}"  title="Please enter postal code number as 6-digit numbers only"
+                    placeholder="">  
+              </div>
+              <div class="form-gorup">
+                   <label for="unit">Unit:</label> 
+                   <input  class="form-control" type="text" id="unit"  required  name="unit" pattern="[0-9][0-9]-[0-9][0-9]" title="Please enter correct unit number eg.06-57"
+                          placeholder="06-57">  
+              </div>
+              
+              <div class="form-gorup">
                    <label for="birthdate">Birthdate :</label> 
                    <input   class="form-control" type="date" id="birthdate"  required  name="birthdate" >  
+              </div>
+                   
+               <div class="form-gorup">
+                   <label for="Country">Country:</label> 
+                   <select id="Country" name="Country" required="Country">
+                       <option value="Singapore">Singapore</option>
+                       <option value="Malaysia">Malaysia</option>
+                       <option value="Taiwan">Taiwan</option>
+                   </select>
               </div>
                                        
               <div class="form-check">

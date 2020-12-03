@@ -3,16 +3,16 @@
 require('PHPMailer/PHPMailerAutoload.php'); 
 require('crediantial.php');
 
-$fname = $email = $lname = $pwd_hashed = $errorMsg = "";
+$fname = $email = $lname = $pwd_hashed = $num = $addr = $po = $unit = $errorMsg = "";
 $success = true;
 
 
 //Helper function that checks input for malicious or unwanted content.
 function sanitize_input($data)
   {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
+    $data = trim($data);               //remove whitespaces 
+    $data = stripslashes($data);       //such as '
+    $data = htmlspecialchars($data);   //such as >,<&
      return $data;
   }
 
@@ -78,6 +78,26 @@ if ($_SERVER["REQUEST_METHOD"]=="POST")  #validation the result when press regis
     {
         $addr = sanitize_input($_POST["address"]);
     }
+    
+      if (empty($_POST["postalcode"]))
+    {
+     $errorMsg .= "postal code is needed.<br>";
+     $success = false;
+    }
+    else 
+    {
+        $po = sanitize_input($_POST["postalcode"]);
+    }
+      if (empty($_POST["unit"]))
+    {
+     $errorMsg .= "unit is needed.<br>";
+     $success = false;
+    }
+     else 
+    {
+        $unit = sanitize_input($_POST["unit"]);
+    }
+    
   
    
    //password validation
@@ -117,6 +137,9 @@ function saveMemberToDB()
    global $fname, $lname, $email, $pwd_hashed, $errorMsg, $success;
    $num = $_POST['phoneno'];
    $addr = $_POST['address'];
+   $po = $_POST['postalcode'];
+   $unit = $_POST['unit'];
+   $country = $_POST['Country'];
    $bd = $_POST['birthdate'];
    $token = md5(rand('10000', '99999'));
    
@@ -135,7 +158,7 @@ function saveMemberToDB()
    
    // Prepare the statement:
    $stmt = $conn->prepare("INSERT INTO cake_member(fname, lname,
-   email, password, phoneno, birthdate, address,token,status,profilepic) VALUES (?, ?, ?, ?, '$num', '$bd', '$addr', '".$token."','Inactive','images/defualtprofile.jpg')");
+   email, password, phoneno, birthdate, street,PostalCode,Unit,Country,token,status,profilepic) VALUES (?, ?, ?, ?, '$num', '$bd', '$addr', '$po','$unit','$country' , '".$token."','Inactive','images/defualtprofile.jpg')");
    
    $sql = "select * from cake_member where email = '$email' ";
    $search_result = mysqli_query($conn, $sql);
@@ -209,11 +232,89 @@ function saveMemberToDB()
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Register result</title>   
     <link rel="stylesheet" href="css/main.css" />
        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
               integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
               crossorigin="anonymous">
-<title>Register result</title>      
+       
+       
+        <style>                
+           #mask 
+           {
+              position: absolute;
+             left: 0;
+              top: 0;
+              z-index: 9000;
+              background-color: #000;
+             display: none;
+          }
+             #boxes .window 
+             {
+              position: absolute;
+              left: 0;
+              top: 0;
+               width: 440px;
+               height: 200px;
+               display: none;
+               z-index: 9999;
+               padding: 20px;
+               border-radius: 15px;
+               text-align: center;
+              }
+
+              #boxes #dialog 
+              {
+              width: 350px;
+             height: 400px;
+              padding: 10px;
+              background-color: #ffffff;
+              font-family: 'Segoe UI Light', sans-serif;
+              font-size: 15pt;
+               }
+       </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script> 
+    
+    <script>
+         $(document).ready(function() {	
+
+          var id = '#dialog';
+	
+          //Get the screen height and width
+          var maskHeight = $(document).height();
+          var maskWidth = $(window).width();
+	
+         //Set heigth and width to mask to fill up the whole screen
+          $('#mask').css({'width':maskWidth,'height':maskHeight});
+
+          //transition effect
+         $('#mask').fadeIn(500);	
+         $('#mask').fadeTo("slow",0.9);	
+	
+           //Get the window height and width
+           var winH = $(window).height();
+           var winW = $(window).width();
+              
+           //Set the popup window to center
+           $(id).css('top',  winH/2-$(id).height()/2);
+            $(id).css('left', winW/2-$(id).width()/2);
+	
+          //transition effect
+          $(id).fadeIn(2000); 	
+	
+           //if close button is clicked
+            $('.window .close').click(function (e) {
+           //Cancel the link behavior
+             e.preventDefault();
+
+             $('#mask').hide();
+             $('.window').hide();
+            });
+});
+    
+    
+    </script> 
+   
 </head>
 <body>
     <?php 
@@ -235,17 +336,33 @@ function saveMemberToDB()
              if ($success)
              {
                  saveMemberToDB();
+                 
+                echo "<div id=\"boxes\">";
+                echo "<div id=\"dialog\" class=\"window\">";
+                 
                  echo "<h2>Your registration is success please verify your email first!</h2>";
                  echo "<h4>Thank you for signing up, " . $fname . " " . $lname . ".</h4>";             
                  echo "<a href='Login.php' class='btn btn-danger'>Log-in</a>";
                  
+                 echo '</div>';
+                 echo '<div id="mask">';
+                 echo '</div>';
+                 echo '</div>';
+                 
              }
              else
              {
+                 echo "<div id=\"boxes\">";
+                 echo "<div id=\"dialog\" class=\"window\">";
                  echo "<h2>Oops</h2>";
                  echo "<h4>The following error were detected:</h4>";
                  echo "<p>" . $errorMsg . "</p>";
                  echo "<a href='register.php' class='btn btn-danger'>Return to Sign Up</a>";
+                 
+                 echo '</div>';
+                 echo '<div id="mask">';
+                 echo '</div>';
+                 echo '</div>';
              }
         
         

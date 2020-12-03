@@ -58,7 +58,7 @@
                 <div class="form-gorup">
                     <label for="newaddress">Address:</label> 
                     <input  class="form-control" type="text" id="newaddress"  required  name="newaddress" 
-                            value="<?php echo $userinfo['address']; ?>">  
+                            value="<?php echo $userinfo['street']; ?>">  
                 </div>
        
                 <div class="form-gorup">                   
