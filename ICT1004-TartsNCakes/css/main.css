@@ -45,7 +45,7 @@ footer
 
 /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
 @media screen and (max-width: 600px) {
-    .jumbotron .container
+    .jumbotron .container, #cartName
     {
         background: RGBA(255, 255, 255, 0.2);
         font-size:15px;

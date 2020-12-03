@@ -29,9 +29,8 @@
         $userinfo = mysqli_fetch_assoc($selectduser);
         ?> 
         
-        <div class="row">       
-            <div class='col-2'></div>
-            <div class="col-4">
+        <div class="container">       
+            <div class="col-xl col-md-sm">
                 <form id="form1" enctype="multipart/form-data" name="form1" action="process_paymentDetails.php" method="post" >
                 <div class="form-gorup">
                     <label for="newfname">First Name:</label>            
@@ -69,7 +68,7 @@
                     
             </form>
             </div>
-            <div class="col-4">
+            <div class="col-xl col-md-sm" style="padding: 1em;">
                 <table id="orderhistory" style="overflow-x:auto;">
                     <tr>
                         <th>Item no.</th>
@@ -119,11 +118,9 @@
                     $conn->close();
                     ?></table>
             </div>
-            <div class='col-2'></div>
         </div>
-        <div class="row ">
-            <div class="col-9"></div>
-            <div class="col-3" style="padding: 1em">
+        <div class="container">
+            <div class="col-xl col-md-sm" style="padding: 1em">
                 <form method="POST" id ="form1">                   
                     <button type="submit" form="form1" class="center btn btn-secondary">Checkout</button>
                 </form>
