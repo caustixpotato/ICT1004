@@ -9,10 +9,10 @@
 
 
 
-
-        <?php
+        
+        <?php 
         session_start();
-        if (!isset($_SESSION['whoami'])) {
+        if (!isset($_SESSION['whoami'])) { //check if there is an session
             header("Location:Login.php");
         }
 
@@ -23,10 +23,25 @@
         $useremail = $_SESSION['whoami'];
         $userid = $_SESSION['userid'];
         $userlname = $_SESSION['username'];
-        $sql = "SELECT * FROM cake_member where userID ='$userid'";
-
-        $selectduser = mysqli_query($conn, $sql);
-        $userinfo = mysqli_fetch_assoc($selectduser);
+        $stmt = $conn->prepare("SELECT * FROM cake_member where userID ='$userid'");
+        
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0)
+        {
+        $row = $result->fetch_assoc();
+    $fname = $row["fname"];
+    $lname = $row["lname"];
+    $email = $row["email"];
+    $phoneno = $row["phoneno"];
+     $addr = $row["street"];
+    $po = $row["PostalCode"];
+    $unit = $row["Unit"];
+    $profilepict = $row["profilepic"];
+            
+            }
+        //$selectduser = mysqli_query($conn, $sql);
+        //s$userinfo = mysqli_fetch_assoc($selectduser);
         ?>
 
 
@@ -45,7 +60,7 @@ include "phpFiles/nav.inc.php"
         </header>
 
         <main class="container">        
-            <img id="profileimg" alt="profilepicture" src="<?php echo $userinfo['profilepic'] ?>">
+            <img id="profileimg" alt="profilepicture" src="<?php echo $profilepict; ?>">
             <br>
             <h1 style="color:darkgrey;"><?php echo $userinfo['lname']; ?>'s Profile</h1>        
             <br>
@@ -59,41 +74,41 @@ include "phpFiles/nav.inc.php"
                 <div class="form-gorup">
                     <label for="newfname">First Name:</label>            
                     <input class="form-control " type="text" id="newfname" required  name="newfname"                   
-                           value="<?php echo $userinfo['fname']; ?>">    
+                           value="<?php echo  $fname; ?>" >    
 
                 </div>
                 <div class="form-gorup">
                     <label for="newlname">Last Name:</label>            
                     <input class="form-control" type="text" id="newlname"
-                           required maxlength="45" name="newlname" value="<?php echo $userinfo['lname']; ?>">             
+                           required maxlength="45" name="newlname" value="<?php echo $lname; ?>">             
                 </div>   
 
                 <div class="form-gorup">
                     <label for="newemail">Email:</label>            
                     <input class="form-control" type="email" id="newemail" required name="newemail"                   
-                           placeholder="Enter email" title="Please enter a valid email addess" value="<?php echo $userinfo['email']; ?>">            
+                           placeholder="Enter email" title="Please enter a valid email addess" value="<?php echo $email; ?>">            
                 </div>      
 
                 <div class="form-gorup">
                     <label for="newphoneno">Phone number:</label> 
                     <input  class="form-control" type="text" id="newphoneno"  required maxlength="11" name="newphoneno" 
-                            pattern="[0-9]{8}" title="Please enter phone number as 8-digit numbers only" value="<?php echo $userinfo['phoneno']; ?>">  
+                            pattern="[0-9]{8}" title="Please enter phone number as 8-digit numbers only" value="<?php echo $phoneno; ?>">  
                 </div>               
                 <div class="form-gorup">
                     <label for="newaddress">Street:</label> 
                     <input  class="form-control" type="text" id="newaddress"  required  name="newaddress" 
-                            value="<?php echo $userinfo['street']; ?>">  
+                            value="<?php echo $addr; ?>">  
                 </div>
                 
                 <div class="form-gorup">
                     <label for="newpo">Postal code:</label> 
                     <input  class="form-control" type="text" id="newpo"  required  name="newpo"  name="postalcode" pattern="[0-9]{6}"  title="Please enter postal code number as 6-digit numbers only"
-                            value="<?php echo $userinfo['PostalCode']; ?>">  
+                            value="<?php echo $po; ?>">  
                 </div>
                  <div class="form-gorup">
                     <label for="newunit">Unit:</label> 
                     <input  class="form-control" type="text" id="newunit"  required  name="newunit" pattern="[0-9][0-9]-[0-9][0-9]" title="Please enter valid unit number eg.06-57" 
-                            value="<?php echo $userinfo['Unit']; ?>">  
+                            value="<?php echo $unit; ?>">  
                 </div>
 
                 <div class="form-check">
