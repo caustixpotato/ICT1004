@@ -12,9 +12,11 @@ $newvaluelname = $_POST['newlname'];
 $newvalueemail = $_POST['newemail'];
 $newvaluephoneno = $_POST['newphoneno'];
 $newvalueaddress = $_POST['newaddress'];
+$newvaluepo = $_POST['newpo'];
+$newvalueunit = $_POST['newunit'];
 
 
-$newfname ="UPDATE cake_member SET fname = '$newvaluefname', lname = '$newvaluelname', email = '$newvalueemail', phoneno = '$newvaluephoneno', address = '$newvalueaddress'  WHERE userID = '$userid'";
+$newfname ="UPDATE cake_member SET fname = '$newvaluefname', lname = '$newvaluelname', email = '$newvalueemail', phoneno = '$newvaluephoneno', street = '$newvalueaddress' , PostalCode = '$newvaluepo', Unit = '$newvalueunit' WHERE userID = '$userid'";
 
  $sql = "select * from cake_member where email = '$newvalueemail' "; //to search for any duplicate email in the database
  $search_result = mysqli_query($conn, $sql);
@@ -53,7 +55,10 @@ if($Updateuser >0)
 }
 else
 {
-    header("Location:index.php");
+  "<script>
+   alert('Profile Update Unsuccessfully');
+  window.location.href='profile.php';
+   </script>";
 }
 
 
@@ -93,13 +98,13 @@ $userid = $_SESSION['userid'];
       $put_there = "images/" . $filename;
      
      if($filesize < 1000000000)
-{
+   {
          if($filetype == "image/jpeg" or
            $filetype == "image/jpg" or
            $filetype == "image/png" or
            $filetype == "image/gif" or
-           $filetype == "image/bmp"  )
-         {
+           $filetype == "image/bmp")
+       {
          
           $result = move_uploaded_file( $_FILES['fileToUpload']['tmp_name'] , $put_there );
            
@@ -114,13 +119,18 @@ $userid = $_SESSION['userid'];
        
        }
        
-  }
+   }
       else 
       {
         header("Location:profile.php?big=1"); 
       }
       
 
+      
+      
+
+      
+      
 
 
 
