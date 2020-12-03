@@ -1,9 +1,14 @@
 <?php
+// Resume current session
 session_start();
 
+
+//connect to db
 $config = parse_ini_file('../../private/db1-config.ini');
 $conn = new mysqli($config['servername'], $config['username'],
 $config['password'], $config['dbname']);
+
+
 
 $useremail = $_SESSION['whoami'];
 $userid = $_SESSION['userid'];
@@ -29,12 +34,12 @@ $newfname ="UPDATE cake_member SET fname = '$newvaluefname', lname = '$newvaluel
  
  if($useremailing['email'] == $newvalueemail)
    {
-     //true if email not change 
+     //true if email not change mean can update
     $success = true;
    }
    else if($emailfound >= 1)
    {
-     //fail
+     //fail as email has been found in database
      echo "<script>
      alert('Email already been use try other email');
       window.location.href='profile.php';
