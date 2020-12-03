@@ -154,7 +154,9 @@
                         echo "</table>";
                         echo "You have not added anything to cart yet!";
                     }
-                    $conn->close();
+                    $memberDetSQL->close();
+                    $getCurrentCart->close();
+                    $conn->close();                    
                     ?></table>
             </div>
         </div>
