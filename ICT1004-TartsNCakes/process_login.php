@@ -146,9 +146,9 @@ function authenticateUser()
               position: absolute;
              left: 0;
               top: 0;
-              z-index: 2000;
-            background-color: #000;
-           display: none;
+              z-index: 9000;
+              background-color: #000;
+             display: none;
           }
              #boxes .window {
   position: absolute;
