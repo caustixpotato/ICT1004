@@ -59,13 +59,17 @@
             $success = false;
         } else {
             //Query for rows that are Tarts
-            $sqltart = "SELECT * FROM Items WHERE Category ='Tart'";
+            $stmtTart = $conn->prepare("SELECT * FROM Items WHERE Category ='Tart'");
+            $stmtTart ->execute();
+            //$sqltart = "SELECT * FROM Items WHERE Category ='Tart'";
             //Execute Query and save the results on a variable
-            $resulttart = mysqli_query($conn, $sqltart);
+            $resulttart = $stmtTart->get_result();
             //Query for rows that are Cakes
-            $sqlcake = "SELECT * FROM Items WHERE Category ='Cake'";
+            //$sqlcake = "SELECT * FROM Items WHERE Category ='Cake'";
+            $stmtCake = $conn->prepare("SELECT * FROM Items WHERE Category ='Cake'");
+            $stmtCake ->execute();
             //Execute Query and save the results on a variable
-            $resultcake = mysqli_query($conn, $sqlcake);
+            $resultcake = $stmtCake->get_result();
         }
         ?>
         <?php
