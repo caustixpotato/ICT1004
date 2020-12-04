@@ -89,6 +89,7 @@ function authenticateUser()
     $fname = $row["fname"];
     $lname = $row["lname"];
     $email = $row["email"];
+    $position = $row["Mem"];
     
     $pwd_hashed = $row["password"];
     
@@ -101,15 +102,29 @@ function authenticateUser()
     $errorMsg = "Email not found or password doesn't match...";
     $success = false;
     }
-    else
+    else{
+        
+     if ($position == 'admin')
     {
           session_start();
+        
+          $userid = $row["userID"];
+          $_SESSION['whoami'] = $email;
+          $_SESSION['username'] = $lname;
+          $_SESSION['userid'] = $userid;
+          $_SESSION['admin'] = $email;
+    }
+    if ($position == 'user')
+    {
+          session_start();
+        
           $userid = $row["userID"];
           $_SESSION['whoami'] = $email;
           $_SESSION['username'] = $lname;
           $_SESSION['userid'] = $userid;
     }
    }
+    }
  else
  {
  $errorMsg = "Need to verify your account first or your Email not found or password doesn't match...";

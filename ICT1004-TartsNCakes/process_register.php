@@ -157,8 +157,7 @@ function saveMemberToDB()
      
    
    // Prepare the statement:
-   $stmt = $conn->prepare("INSERT INTO cake_member(fname, lname,
-   email, password, phoneno, birthdate, street,PostalCode,Unit,Country,token,status,profilepic) VALUES (?, ?, ?, ?, '$num', '$bd', '$addr', '$po','$unit','$country' , '".$token."','Inactive','images/defualtprofile.jpg')");
+   $stmt = $conn->prepare("INSERT INTO cake_member(fname, lname, email, password, phoneno, birthdate, street,PostalCode,Unit,Country,token,status,profilepic,Mem) VALUES (?, ?, ?, ?, '$num', '$bd', '$addr', '$po','$unit','$country' , '".$token."','Inactive','images/defualtprofile.jpg','user')");
    
    $sql = "select * from cake_member where email = '$email' ";
    $search_result = mysqli_query($conn, $sql);

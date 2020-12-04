@@ -62,6 +62,33 @@
             $sql = "SELECT * FROM cake_member where email ='$useremail'";
             ?>
 
+            
+            <?php
+            session_start();
+
+            if (isset($_SESSION['admin'])) 
+            {
+
+
+                echo ' <li class="nav-item">
+                <a class="nav-link" title="Member" href="member.php">
+                      <img src="images/member.png" width="30" height="40" class="d-inline-block align-center" alt="Cart" loading="lazy"/>Admin
+                  </a>                 
+                  </li>';
+            }
+
+            //open connection and select database
+            $config = parse_ini_file('../../private/db1-config.ini');
+            $conn = new mysqli($config['servername'], $config['username'],
+                    $config['password'], $config['dbname']);
+
+
+            $useremail = $_SESSION['whoami'];
+
+            $sql = "SELECT * FROM cake_member where email ='$useremail'";
+            ?>
+            
+            
             <?php
             session_start();
 
