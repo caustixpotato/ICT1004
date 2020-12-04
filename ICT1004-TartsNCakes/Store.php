@@ -1,53 +1,18 @@
 <html lang="en">
     <head>
-        <title>Tarts N's Cake</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-              integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
-              crossorigin="anonymous">
-        <link rel="stylesheet" href="css/main.css" />
+        <?php
+        include 'phpFiles/headcontents.inc.php';
+        ?>
         <link rel ="stylesheet" href="css/items.css"/>
-
-
-
-        <!-- Bootstrap 4.5.3 jQuery-->
-        <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-                crossorigin="anonymous">
-        </script>
-
-        <!--Bootstrap 4.5.3 JS-->
-        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-                crossorigin="anonymous">
-        </script>
-
-        <!-- Internal JS -->
-        <script defer src="js/item.js"></script>
-
+        <script defer src="js/item.js"></script>   
     </head>
-
     <body>
         <?php
-        include "phpFiles/nav.inc.php"
-        ;
+        include "phpFiles/nav.inc.php";
         ?>
-        <div class="jumbotron jumbotron-fluid text-center bg-light">
-            <div class="container">
-                <h1>Tarts N' Cakes</h1>
-                <p>Best thing since Sliced Bread</p>
-                <?php
-                if (!isset($_SESSION['whoami'])) {
-                    echo '
-                            <a class="btn btn-primary" href="register.php" role="button">Shop Here</a>
-                            ';
-                } else {
-                    echo ' <a class="btn btn-primary" href="#" role="button">Shop Here</a>';
-                }
-                ?>
-            </div>
-        </div>
+        <?php
+            include "phpFiles/banner.php";
+            ?>
         <!-- Start Connection -->
         <?php
         session_start();
@@ -222,7 +187,7 @@
                     <!--The Close Button-->
                     <!--<span class = "close">X</span>-->
                     <!--Modal Content (The Image) -->
-                    <img class = "modal-content" id = "img01">
+                    <img class = "modal-content" id = "img01" alt ="">
                     <!--Modal Caption (Name Text) -->
                     <div id = "name-content"></div>
                     <!--Modal Caption (Desc Text) -->

@@ -72,6 +72,7 @@ for (var i = 0; i < images.length; i++) {
         modal.style.display = "block";
         modalImg.src = this.src;
         modalImg.id = j;
+        modalImg.alt = this.alt;
         nameText.innerHTML = this.alt;
         descModal.innerHTML = desc;
         priceModal.innerHTML = "$" + price + "";
