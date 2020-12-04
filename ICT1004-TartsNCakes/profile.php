@@ -62,7 +62,7 @@ include "phpFiles/nav.inc.php"
         <main class="container">        
             <img id="profileimg" alt="profilepicture" src="<?php echo $profilepict; ?>">
             <br>
-            <h1 style="color:darkgrey;"><?php echo $userinfo['lname']; ?>'s Profile</h1>        
+            <h1 style="color:darkgrey;"><?php echo $lname; ?>'s Profile</h1>        
             <br>
             <br>
             <p>             

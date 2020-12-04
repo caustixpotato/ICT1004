@@ -1,8 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Tarts N's Cake</title>
-        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/register.css" />
         <?php
@@ -106,7 +104,8 @@
 
                 <div class="form-gorup">
                     <label for="Country">Country:</label> 
-                    <select id="Country" name="Country" required="Country">
+                    <select id="Country" name="Country" required>
+                        <option value="">Choose</option>
                         <option value="Singapore">Singapore</option>
                         <option value="Malaysia">Malaysia</option>
                         <option value="Taiwan">Taiwan</option>

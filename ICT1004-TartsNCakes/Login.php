@@ -1,8 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Tarts N's Cake</title>
-        <meta charset="UTF-8">
+      
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet"  href="css/login.css">
         <?php
@@ -30,7 +29,7 @@
 
                     <form name="form1" action="process_login.php" method="post" >    	
                         <div class="form-gorup1">
-                            <label for="email">Email<span>*</span></label>
+                            <label for="email">Gmail<span>*</span></label>
                             <input type="email"  class="form-control" placeholder="Enter your email here" pattern="^[a-zA-Z0-9]+@gmail\.com$" 
                                    title="Please enter a valid GMAIL addess" name="email" id="email" required>
                         </div>
