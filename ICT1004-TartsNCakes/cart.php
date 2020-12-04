@@ -37,10 +37,13 @@
                     </tr>
                     <?php
                     // Get the cartinformation from the db
-                    $getCurrentCart = "SELECT shopping_cart.itemID, shopping_cart.itemQuantity, Items.Name, Items.Pricing FROM shopping_cart, Items WHERE shopping_cart.userID = '$userid' AND shopping_cart.itemID = Items.ItemID;";
-                    $currentCart = mysqli_query($conn, $getCurrentCart);
+                    // Prepare SQL statement
+                    $getCurrentCart = $conn->prepare("SELECT shopping_cart.itemID, shopping_cart.itemQuantity, Items.Name, Items.Pricing FROM shopping_cart, Items WHERE shopping_cart.userID = ? AND shopping_cart.itemID = Items.ItemID;");
 
-                    //$numberOfRows = mysql_num_rows($currentCart);
+                    // Bind and execute the query statement
+                    $getCurrentCart->bind_param("s", $userid);
+                    $getCurrentCart->execute();
+                    $currentCart = $getCurrentCart->get_result();
 
                     if ($currentCart->num_rows > 0) {
                         // output data of each row
@@ -51,19 +54,17 @@
                             echo "<td>" . $rowcounter . "</td>";
                             echo "<td>" . $row["Name"] . "</td>";
                             echo "<td>" . $row["itemQuantity"] . "</td>";
-                            echo "<td>" . $row["Pricing"]* $row["itemQuantity"] . "</td>";
-                           
+                            echo "<td>" . $row["Pricing"] * $row["itemQuantity"] . "</td>";
+
                             echo "<td>";
                             echo "<form  id=\"form2\" action=\"Deleteitem.php\" method=\"post\">";
-                            echo "<input type=\"submit\" name=\"submit\" value=\"Delete\">" ;
-                            echo "<input type=\"hidden\" name=\"cid\" value=\"".$row['itemID']."\">";
-                            echo "</form>";     
+                            echo "<input type=\"submit\" name=\"submit\" value=\"Delete\">";
+                            echo "<input type=\"hidden\" name=\"cid\" value=\"" . $row['itemID'] . "\">";
+                            echo "</form>";
                             echo "</td>";
                             echo "</tr>";
-                            $totalCost = $totalCost + ($row["Pricing"]* $row["itemQuantity"]);
+                            $totalCost = $totalCost + ($row["Pricing"] * $row["itemQuantity"]);
                             $rowcounter++;
-                            
-                            
                         }
                         echo "<tr>";
                         echo "<td></td>";
@@ -79,7 +80,7 @@
                         echo "</tr>";
                         echo "</table>";
                     } else {
-                        
+
                         echo "</table>";
                         echo "No items in cart!";
                     }
@@ -94,6 +95,6 @@
                     <button type="submit" form="form1" class="center btn btn-secondary">Go to payment</button>
                 </form>
             </div>
-        <?php include "phpFiles/footer.inc.php"; ?> 
+<?php include "phpFiles/footer.inc.php"; ?> 
     </body>
 </html>
