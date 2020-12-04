@@ -5,10 +5,6 @@
  *
  */
 
-//Code within this will only run once DOM is ready
-// Shorthand for $(document).ready() is $(function(){});
-const ID_POPUP = "id_popup";
-//const ID_MODAL = "id_modal";
 $(document).ready(function ()
 {
     $(window).scroll(function () {
