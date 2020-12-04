@@ -1,25 +1,19 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-    <head> <!--header-->
+    <head>
         <?php
         include 'phpFiles/headcontents.inc.php';
         ?>
-
         <!--Google Fonts-->
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet">
-
     </head>
 
     <body>
         <?php
         include "phpFiles/nav.inc.php";
+        include "phpFiles/banner.php";
         ?> 
         <main>
-            <?php
-            include "phpFiles/banner.php";
-            ?>
-            <!--            Intro Cards-->
             <section id="services" class="container">
                 <div class="row text-center">
                     <div class="col-md-6 mb-6">
