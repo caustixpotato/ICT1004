@@ -1,12 +1,3 @@
-<!--
-Footer Goals:
-Needs Brand
-Primary Buttons:
-    - Mailing List [Form]
-    - Stores
-    - Services
--->
-
 <footer class="container">
     
     <a class="nav-link" href="store_locations.php">Our Stores</a>
@@ -17,3 +8,4 @@ Primary Buttons:
     </div>
   
 </footer>
+
