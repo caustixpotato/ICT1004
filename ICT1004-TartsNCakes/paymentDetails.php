@@ -82,12 +82,14 @@
 
                 <div class="form-gorup">
                     <label for="blkno">Block:</label> 
-                    <input  class="form-control" type="text" id="blkno"  required  name="blkno">  
+                    <input  class="form-control" type="text" id="blkno"  required  name="blkno" 
+                           value="<?php echo $userinfo['PostalCode']; ?> ">  
                 </div>
 
                 <div class="form-gorup">
                     <label for="unitno">Unit:</label> 
-                    <input  class="form-control" type="text" id="unitno"  required  name="unitno">  
+                    <input  class="form-control" type="text" id="unitno"  required  name="unitno"
+                    value="<?php echo $userinfo['Unit']; ?> "> 
                 </div>
                 <div class="form-gorup">
                     <label for="newaddress">Address:</label> 
